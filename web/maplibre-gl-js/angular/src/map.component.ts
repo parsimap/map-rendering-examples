@@ -6,7 +6,7 @@ import { mapToken } from './map-token';
 const STYLE_ID = 'parsimap-streets-v11';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-map',
   template: `
     <main>
       @if (error()) { <p role="alert">{{ error() }}</p> }

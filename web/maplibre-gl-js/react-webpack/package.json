@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "start": "webpack serve --mode development",
-    "start:stateful": "webpack serve --mode development --env stateful",
-    "build": "webpack --mode production",
-    "build:stateful": "webpack --mode production --env stateful"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "maplibre-gl": "6.16.0",
