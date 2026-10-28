@@ -7,8 +7,8 @@ import { StatefulMapComponent } from './stateful-map.component';
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter([
-      { path: '', component: MapComponent },
-      { path: 'stateful', component: StatefulMapComponent },
+      { path: '', component: MapComponent, title: 'Parsimap + MapLibre GL JS + Angular' },
+      { path: 'stateful', component: StatefulMapComponent, title: 'Parsimap + MapLibre GL JS + Angular – stateful' },
     ]),
   ],
 }).catch((error: unknown) => console.error(error));

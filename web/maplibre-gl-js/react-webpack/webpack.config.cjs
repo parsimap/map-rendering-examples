@@ -24,7 +24,7 @@ module.exports = {
   resolve: { extensions: ['.ts', '.tsx', '.js'] },
   plugins: [
     new webpack.DefinePlugin({ PMI_MAP_TOKEN: JSON.stringify(process.env.PMI_MAP_TOKEN ?? '') }),
-    new HtmlWebpackPlugin({ template: './index.html', chunks: ['main'] }),
-    new HtmlWebpackPlugin({ template: './index.html', filename: 'stateful/index.html', chunks: ['stateful'] }),
+    new HtmlWebpackPlugin({ template: './index.html', chunks: ['main'], title: 'Parsimap + MapLibre GL JS + React (webpack)' }),
+    new HtmlWebpackPlugin({ template: './index.html', filename: 'stateful/index.html', chunks: ['stateful'], title: 'Parsimap + MapLibre GL JS + React (webpack) – stateful' }),
   ],
 };
