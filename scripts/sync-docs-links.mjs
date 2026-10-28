@@ -5,6 +5,11 @@ import { dirname, resolve } from 'node:path';
 const DOCS_BASE_URL = 'https://docs.parsimap.dev';
 const examples = [
   {
+    readme: 'web/maplibre-gl-js/vite-vue-js/README.md',
+    docsPath: '/docs/Render%20Maps/maplibre-gl-js-vue-vite',
+    label: 'MapLibre GL JS Vue and Vite guide',
+  },
+  {
     readme: 'web/maplibre-gl-js/nextjs-app-router-js/README.md',
     docsPath: '/docs/Render%20Maps/maplibre-gl-js-nextjs',
     label: 'MapLibre GL JS Next.js guide',

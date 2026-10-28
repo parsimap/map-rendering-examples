@@ -1,0 +1,8 @@
+{
+  "name": "parsimap-maplibre-vue-vite",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "vite", "build": "vite build", "preview": "vite preview" },
+  "dependencies": { "maplibre-gl": "6.16.0", "vue": "3.5.44" },
+  "devDependencies": { "@vitejs/plugin-vue": "6.0.10", "vite": "8.3.5" }
+}
