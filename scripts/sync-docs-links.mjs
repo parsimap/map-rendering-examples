@@ -5,7 +5,7 @@ import { dirname, resolve } from 'node:path';
 const DOCS_BASE_URL = 'https://docs.parsimap.dev';
 const examples = [
   {
-    readme: 'web/maplibre-gl-js-vite-vanilla-js/README.md',
+    readme: 'web/maplibre-gl-js/vite-vanilla-js/README.md',
     docsPath: '/docs/Render%20Maps/maplibre-gl-js',
     label: 'MapLibre GL JS guide',
   },
