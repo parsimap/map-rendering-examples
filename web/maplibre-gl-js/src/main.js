@@ -9,7 +9,7 @@ const token = import.meta.env.VITE_PMI_MAP_TOKEN;
 const status = document.querySelector('#status');
 
 if (!token || token === 'YOUR_PARSIMAP_TOKEN') {
-  status.textContent = 'توکن پارسی مپ را در فایل .env.local تنظیم کنید.';
+  status.textContent = 'Set your Parsimap token in .env.local.';
 } else {
   const styleUrl = new URL('https://api.parsimap.ir/styles/parsimap-streets-v11');
   styleUrl.searchParams.set('key', token);
@@ -23,7 +23,7 @@ if (!token || token === 'YOUR_PARSIMAP_TOKEN') {
 
   map.addControl(new maplibregl.NavigationControl());
   map.on('error', () => {
-    status.textContent = 'بارگذاری نقشه با مشکل روبه‌رو شد. توکن و اتصال شبکه را بررسی کنید.';
+    status.textContent = 'Unable to load the map. Check your token and network connection.';
   });
 }
 
