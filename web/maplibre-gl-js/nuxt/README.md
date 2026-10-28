@@ -1,7 +1,7 @@
 # Parsimap with MapLibre GL JS and Nuxt
 
 <!-- docs-link:start -->
-See the [Parsimap guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-nuxt).
+[MapLibre GL JS Nuxt guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-nuxt)
 <!-- docs-link:end -->
 
 1. Run `npm install`.

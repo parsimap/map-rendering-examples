@@ -1,7 +1,7 @@
 # Parsimap with MapLibre GL JS and Angular
 
 <!-- docs-link:start -->
-See the [Parsimap guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-angular).
+[MapLibre GL JS Angular guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-angular)
 <!-- docs-link:end -->
 
 1. Run `npm install`.

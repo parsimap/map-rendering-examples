@@ -1,7 +1,7 @@
 # Parsimap with MapLibre GL JS and Next.js 16 App Router
 
 <!-- docs-link:start -->
-See the [Parsimap guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-nextjs).
+[MapLibre GL JS Next.js guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-nextjs)
 <!-- docs-link:end -->
 
 1. Run `npm install`.

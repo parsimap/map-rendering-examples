@@ -1,7 +1,7 @@
 # Parsimap with MapLibre GL JS, Vue, and Vite
 
 <!-- docs-link:start -->
-See the [Parsimap guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-vue-vite).
+[MapLibre GL JS Vue and Vite guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-vue-vite)
 <!-- docs-link:end -->
 
 1. Run `npm install`.
