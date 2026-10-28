@@ -1,0 +1,21 @@
+version: 2
+updates:
+  # One pull request per example folder. Major versions are ignored because
+  # several examples target a specific major, such as Next.js 15 or SvelteKit 2,
+  # and a major upgrade also needs its documentation guide updated.
+  - package-ecosystem: npm
+    directories:
+      - /web/*/*
+    schedule:
+      interval: weekly
+    groups:
+      dependencies:
+        patterns: ['*']
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
