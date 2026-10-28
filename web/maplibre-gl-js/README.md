@@ -1,22 +1,17 @@
-# Parsimap + MapLibre GL JS
+# Parsimap with MapLibre GL JS, Vite, and Vanilla JavaScript
 
-نمونه در حال بررسی است؛ نمایش نقشه با توکن معتبر در یک مرورگر آزمایش شده است.
+[Parsimap documentation](https://docs.parsimap.ir/)
 
-## اجرا
+## Setup
 
-Node.js نسخه 20.19+ یا 22.12+ (یا نسخه جدیدتر پشتیبانی‌شده توسط Vite) لازم است. در این پوشه:
+Requires Node.js 20.19+ or 22.12+.
 
 ```sh
 npm install
 ```
 
-فایل `.env.example` را با نام `.env.local` کپی کنید و مقدار `VITE_PMI_MAP_TOKEN` را با توکن پارسی مپ جایگزین کنید. سپس:
+Copy `.env.example` to `.env.local` and set `VITE_PMI_MAP_TOKEN` to your Parsimap token.
 
 ```sh
 npm run dev
 ```
-
-نشانی نمایش‌داده‌شده در ترمینال را در مرورگر باز کنید. برای ساخت نسخه تولیدی `npm run build` را اجرا کنید.
-
-توکن مرورگر در درخواست‌های شبکه قابل مشاهده است. توکن واقعی یا فایل `.env.local` را در Git ثبت نکنید. Attribution پیش‌فرض نقشه را حفظ کنید.
-
