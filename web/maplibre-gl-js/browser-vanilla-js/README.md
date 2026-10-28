@@ -6,7 +6,7 @@
 
 ## Setup
 
-Replace `YOUR_TOKEN_HERE` in `main.js` with your Parsimap token, then serve this directory with a local HTTP server. For example, with Python 3:
+Set the `token` value in `main.js` to your Parsimap token, then serve this directory with a local HTTP server. For example, with Python 3:
 
 ```sh
 python -m http.server 8000
