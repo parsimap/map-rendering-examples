@@ -1,6 +1,6 @@
 # Parsimap with MapLibre GL JS, Vite, and Vanilla JavaScript
 
-[Parsimap documentation](https://docs.parsimap.ir/)
+[MapLibre GL JS guide](http://127.0.0.1:3002/docs/Render%20Maps/maplibre-gl-js)
 
 ## Setup
 
