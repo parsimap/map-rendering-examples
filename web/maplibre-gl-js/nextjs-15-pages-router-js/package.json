@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "postinstall": "node scripts/copy-worker.cjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

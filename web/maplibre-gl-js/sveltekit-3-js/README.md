@@ -1,4 +1,4 @@
-# Parsimap with MapLibre GL JS and SvelteKit
+# Parsimap with MapLibre GL JS and SvelteKit 3
 
 <!-- docs-link:start -->
 [MapLibre GL JS SvelteKit guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-sveltekit)

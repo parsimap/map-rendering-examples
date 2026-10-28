@@ -1,4 +1,4 @@
-# Parsimap with MapLibre GL JS and Next.js
+# Parsimap with MapLibre GL JS and Next.js 16 App Router
 
 <!-- docs-link:start -->
 See the [Parsimap guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-nextjs).

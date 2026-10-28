@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
 import * as maplibregl from 'maplibre-gl';
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
 
 export default function Map() {
   const mapContainer = useRef(null);
-  const { basePath } = useRouter();
 
   useEffect(() => {
     const token = process.env.NEXT_PUBLIC_PMI_MAP_TOKEN;
@@ -12,7 +11,7 @@ export default function Map() {
       throw new Error('Set NEXT_PUBLIC_PMI_MAP_TOKEN in .env.local');
     }
 
-    maplibregl.setWorkerUrl(basePath + '/maplibre-gl-worker.mjs');
+    maplibregl.setWorkerUrl(workerUrl);
     const map = new maplibregl.Map({
       container: mapContainer.current,
       style: 'https://api.parsimap.ir/styles/parsimap-streets-v11?key=' + encodeURIComponent(token),
@@ -21,7 +20,7 @@ export default function Map() {
     });
     map.addControl(new maplibregl.NavigationControl());
     return () => map.remove();
-  }, [basePath]);
+  }, []);
 
   return <div ref={mapContainer} style={{ width: '100%', height: '500px' }} />;
 }

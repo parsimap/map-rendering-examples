@@ -15,7 +15,7 @@ const examples = [
     label: 'MapLibre GL JS SvelteKit 2 guide',
   },
   {
-    readme: 'web/maplibre-gl-js/nextjs-pages-router-js/README.md',
+    readme: 'web/maplibre-gl-js/nextjs-16-pages-router-js/README.md',
     docsPath: '/docs/Render%20Maps/maplibre-gl-js-nextjs-pages',
     label: 'MapLibre GL JS Next.js Pages Router guide',
   },
@@ -26,11 +26,11 @@ const examples = [
   },
   {
     readme: 'web/maplibre-gl-js/webpack-react-js/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-react-vite',
-    label: 'MapLibre GL JS React and Vite guide',
+    docsPath: '/docs/Render%20Maps/maplibre-gl-js-react-webpack',
+    label: 'MapLibre GL JS React and webpack guide',
   },
   {
-    readme: 'web/maplibre-gl-js/sveltekit-js/README.md',
+    readme: 'web/maplibre-gl-js/sveltekit-3-js/README.md',
     docsPath: '/docs/Render%20Maps/maplibre-gl-js-sveltekit',
     label: 'MapLibre GL JS SvelteKit guide',
   },
@@ -55,7 +55,7 @@ const examples = [
     label: 'MapLibre GL JS Vue and Vite guide',
   },
   {
-    readme: 'web/maplibre-gl-js/nextjs-app-router-js/README.md',
+    readme: 'web/maplibre-gl-js/nextjs-16-app-router-js/README.md',
     docsPath: '/docs/Render%20Maps/maplibre-gl-js-nextjs',
     label: 'MapLibre GL JS Next.js guide',
   },
