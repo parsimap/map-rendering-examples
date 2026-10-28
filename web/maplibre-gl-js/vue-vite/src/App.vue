@@ -4,11 +4,12 @@ import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 
+const STYLE_ID = 'parsimap-streets-v11';
+
 maplibregl.setWorkerUrl(workerUrl);
 
 const container = ref(null);
 const error = ref('');
-const loaded = ref(false);
 let map;
 
 onMounted(() => {
@@ -21,12 +22,11 @@ onMounted(() => {
   try {
     map = new maplibregl.Map({
       container: container.value,
-      style: 'https://api.parsimap.ir/styles/parsimap-streets-v11?key=' + encodeURIComponent(token),
+      style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(token)}`,
       center: [51.389, 35.6892],
       zoom: 11,
     });
     map.addControl(new maplibregl.NavigationControl());
-    map.on('load', () => { loaded.value = true; });
     map.on('error', () => { error.value = 'The map could not load. Check your token and network connection.'; });
   } catch {
     map?.remove();
@@ -41,7 +41,6 @@ onUnmounted(() => map?.remove());
 <template>
   <main>
     <p v-if="error" role="alert">{{ error }}</p>
-    <p v-else role="status">{{ loaded ? 'Map loaded.' : 'Loading map…' }}</p>
     <div ref="container" style="width: 100%; height: 500px"></div>
   </main>
 </template>

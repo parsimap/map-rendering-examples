@@ -3,6 +3,8 @@ import { Component, DestroyRef, ElementRef, afterNextRender, inject, signal, vie
 import * as maplibregl from 'maplibre-gl';
 import { mapToken } from './map-token';
 
+const STYLE_ID = 'parsimap-streets-v11';
+
 @Component({
   selector: 'app-root',
   template: `
@@ -34,7 +36,7 @@ export class StatefulMapComponent {
         maplibregl.setWorkerUrl(new URL('assets/maplibre-gl-worker.mjs', this.document.baseURI).toString());
         instance = new maplibregl.Map({
           container: this.container().nativeElement,
-          style: 'https://api.parsimap.ir/styles/parsimap-streets-v11?key=' + encodeURIComponent(mapToken),
+          style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(mapToken)}`,
           center: [51.389, 35.6892], zoom: 11,
         });
         instance.addControl(new maplibregl.NavigationControl());

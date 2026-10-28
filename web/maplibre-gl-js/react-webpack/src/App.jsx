@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
+const STYLE_ID = 'parsimap-streets-v11';
+
 maplibregl.setWorkerUrl(new URL('maplibre-gl/dist/maplibre-gl-worker.mjs', import.meta.url).toString());
 
 export default function App() {
@@ -19,7 +21,7 @@ export default function App() {
     try {
       map = new maplibregl.Map({
         container: container.current,
-        style: 'https://api.parsimap.ir/styles/parsimap-streets-v11?key=' + encodeURIComponent(token),
+        style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(token)}`,
         center: [51.389, 35.6892],
         zoom: 11,
       });

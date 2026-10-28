@@ -1,20 +1,27 @@
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.16.0/dist/maplibre-gl.mjs';
 
+const STYLE_ID = 'parsimap-streets-v11';
 const token = 'YOUR_TOKEN_HERE';
-const status = document.querySelector('#status');
+const errorElement = document.getElementById('map-error');
 
-if (token === 'YOUR_TOKEN_HERE') {
-  status.textContent = 'Set your Parsimap token in main.js.';
+function showError(message) {
+  errorElement.textContent = message;
+  errorElement.hidden = false;
+}
+
+if (!token || token === 'YOUR_TOKEN_HERE') {
+  showError('Set your token in main.js.');
 } else {
-  const map = new maplibregl.Map({
-    container: 'map',
-    style: 'https://api.parsimap.ir/styles/parsimap-streets-v11?key=' + encodeURIComponent(token),
-    center: [51.389, 35.6892],
-    zoom: 11,
-  });
-
-  map.addControl(new maplibregl.NavigationControl());
-  map.on('error', () => {
-    status.textContent = 'Unable to load the map. Check your token and network connection.';
-  });
+  try {
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(token)}`,
+      center: [51.389, 35.6892],
+      zoom: 11,
+    });
+    map.addControl(new maplibregl.NavigationControl());
+    map.on('error', () => showError('The map could not load. Check your token and network connection.'));
+  } catch {
+    showError('The map could not start. Check your browser and token.');
+  }
 }

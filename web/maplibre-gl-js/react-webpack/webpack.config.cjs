@@ -1,10 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const dotenv = require('dotenv');
+
+require('dotenv').config({ path: '.env.local' });
 
 module.exports = (env = {}) => {
-  const token = dotenv.config({ path: '.env.local' }).parsed?.PMI_MAP_TOKEN || '';
   return {
     entry: env.stateful ? './src/main-stateful.jsx' : './src/main.jsx',
     output: { path: path.resolve(__dirname, 'dist'), clean: true },
@@ -17,7 +17,7 @@ module.exports = (env = {}) => {
     },
     resolve: { extensions: ['.js', '.jsx'] },
     plugins: [
-      new webpack.DefinePlugin({ PMI_MAP_TOKEN: JSON.stringify(token) }),
+      new webpack.DefinePlugin({ PMI_MAP_TOKEN: JSON.stringify(process.env.PMI_MAP_TOKEN ?? '') }),
       new HtmlWebpackPlugin({ template: './index.html' }),
     ],
   };

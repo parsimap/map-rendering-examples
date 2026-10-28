@@ -4,6 +4,8 @@ import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 
+const STYLE_ID = 'parsimap-streets-v11';
+
 const container = ref(null);
 const error = ref('');
 const token = useRuntimeConfig().public.pmiMapToken;
@@ -20,7 +22,7 @@ onMounted(async () => {
     maplibregl.setWorkerUrl(workerUrl);
     map = new maplibregl.Map({
       container: container.value,
-      style: 'https://api.parsimap.ir/styles/parsimap-streets-v11?key=' + encodeURIComponent(token),
+      style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(token)}`,
       center: [51.389, 35.6892],
       zoom: 11,
     });

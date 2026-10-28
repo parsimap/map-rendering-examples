@@ -4,26 +4,45 @@
   import 'maplibre-gl/dist/maplibre-gl.css';
   import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 
+  const STYLE_ID = 'parsimap-streets-v11';
+
   maplibregl.setWorkerUrl(workerUrl);
 
-  let mapContainer;
+  let container;
+  let error = $state('');
 
   onMount(() => {
     const token = import.meta.env.VITE_PMI_MAP_TOKEN;
     if (!token || token === 'YOUR_TOKEN_HERE') {
-      throw new Error('Set VITE_PMI_MAP_TOKEN in .env.local');
+      error = 'Set VITE_PMI_MAP_TOKEN in .env.local.';
+      return;
     }
 
-    const map = new maplibregl.Map({
-      container: mapContainer,
-      style: 'https://api.parsimap.ir/styles/parsimap-streets-v11?key=' + encodeURIComponent(token),
-      center: [51.389, 35.6892],
-      zoom: 11,
-    });
+    let instance;
+    try {
+      instance = new maplibregl.Map({
+        container,
+        style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(token)}`,
+        center: [51.389, 35.6892],
+        zoom: 11,
+      });
+      instance.addControl(new maplibregl.NavigationControl());
+      instance.on('error', () => {
+        error = 'The map could not load. Check your token and network connection.';
+      });
+    } catch {
+      instance?.remove();
+      error = 'The map could not start. Check your browser and token.';
+      return;
+    }
 
-    map.addControl(new maplibregl.NavigationControl());
-    return () => map.remove();
+    return () => instance.remove();
   });
 </script>
 
-<div bind:this={mapContainer} style="width: 100%; height: 500px"></div>
+<main>
+  {#if error}
+    <p role="alert">{error}</p>
+  {/if}
+  <div bind:this={container} style="width: 100%; height: 500px"></div>
+</main>
