@@ -1,19 +1,33 @@
-# Parsimap with MapLibre GL JS and Next.js 16 App Router
+# Parsimap + MapLibre GL JS + Next.js (App Router)
 
 <!-- docs-link:start -->
-[MapLibre GL JS Next.js guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-nextjs)
+Documentation: [MapLibre GL JS with Next.js (App Router)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/nextjs-app-router)
 <!-- docs-link:end -->
 
-1. Run `npm install`.
-2. Copy `.env.example` to `.env.local` and replace `YOUR_TOKEN_HERE` with your Parsimap token.
-3. Run `npm run dev`.
+Tested with Next.js 16. The same component works with the Next.js 15 App Router.
 
-## Examples
+## Requirements
 
-`app/map.jsx` uses a ref for the map container. To try the state-based example, change the import in `app/page.jsx` to:
+- A Parsimap map token from the [Parsimap dashboard](https://dashboard.parsimap.ir/auth/signup).
+- Node.js `>=20.9.0`.
+- npm, with a committed `package-lock.json`. Yarn, pnpm, and Bun also work, but they are not lock-tested.
 
-```jsx
-import Map from './StatefulMap.jsx';
-```
+## Setup and run
 
-`app/StatefulMap.jsx` stores the container and map instance in React state and renders an initialization status.
+1. Run `npm ci`.
+2. Copy `.env.example` to `.env.local` and replace `YOUR_TOKEN_HERE` with your token. Next.js exposes only `NEXT_PUBLIC_`-prefixed variables to browser code, and `.env.local` is ignored by Git.
+3. Run `npm run dev` and open http://localhost:3000.
+
+## Build and preview
+
+`npm run build`, then `npm start` and open http://localhost:3000.
+
+## Stateful variant
+
+Open http://localhost:3000/stateful. `app/StatefulMap.tsx` keeps the map instance in React state and shows its initialization status. Use this pattern when other parts of your UI need the map instance, for example to add markers or respond to map events.
+
+## Files
+
+- `app/Map.tsx`: the map component.
+- `app/StatefulMap.tsx`: the stateful variant.
+- `app/layout.tsx`: loads the MapLibre stylesheet.

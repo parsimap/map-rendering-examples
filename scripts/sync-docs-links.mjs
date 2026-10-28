@@ -1,90 +1,117 @@
-import { readFile, writeFile } from 'node:fs/promises';
+// Keeps documentation links in the example READMEs and the root README example
+// table in sync with the list below.
+//
+//   node scripts/sync-docs-links.mjs               rewrite the generated sections
+//   node scripts/sync-docs-links.mjs --check       fail if a generated section is stale
+//   node scripts/sync-docs-links.mjs --check-urls  fail if a documentation URL does not load
+import { readFile, readdir, writeFile, access } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 
 const DOCS_BASE_URL = 'https://docs.parsimap.dev';
+// Example folders are named after their guide: web/<library>/<folder> is
+// documented at <DOCS_PATH>/<library>/<folder>.
+const DOCS_PATH = '/docs/Render%20Maps';
+
+const libraries = { 'maplibre-gl-js': 'MapLibre GL JS' };
 const examples = [
-  {
-    readme: 'web/maplibre-gl-js/nextjs-15-pages-router/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-nextjs-15-pages',
-    label: 'MapLibre GL JS Next.js 15 Pages Router guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/sveltekit-2/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-sveltekit-2',
-    label: 'MapLibre GL JS SvelteKit 2 guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/nextjs-16-pages-router/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-nextjs-pages',
-    label: 'MapLibre GL JS Next.js Pages Router guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/webpack-javascript/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-webpack',
-    label: 'MapLibre GL JS webpack and JavaScript guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/react-webpack/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-react-webpack',
-    label: 'MapLibre GL JS React and webpack guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/sveltekit-3/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-sveltekit',
-    label: 'MapLibre GL JS SvelteKit guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/svelte-vite/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-svelte-vite',
-    label: 'MapLibre GL JS Svelte and Vite guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/angular/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-angular',
-    label: 'MapLibre GL JS Angular guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/nuxt/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-nuxt',
-    label: 'MapLibre GL JS Nuxt guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/vue-vite/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-vue-vite',
-    label: 'MapLibre GL JS Vue and Vite guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/nextjs-app-router/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-nextjs',
-    label: 'MapLibre GL JS Next.js guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/react-vite/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-react-vite',
-    label: 'MapLibre GL JS React and Vite guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/javascript-cdn/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js-browser',
-    label: 'MapLibre GL JS browser guide',
-  },
-  {
-    readme: 'web/maplibre-gl-js/vite-javascript/README.md',
-    docsPath: '/docs/Render%20Maps/maplibre-gl-js',
-    label: 'MapLibre GL JS guide',
-  },
+  { dir: 'web/maplibre-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
+  { dir: 'web/maplibre-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
+  { dir: 'web/maplibre-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
+  { dir: 'web/maplibre-gl-js/react-vite', stack: 'React (Vite)' },
+  { dir: 'web/maplibre-gl-js/react-webpack', stack: 'React (webpack)' },
+  { dir: 'web/maplibre-gl-js/nextjs-app-router', stack: 'Next.js (App Router)' },
+  { dir: 'web/maplibre-gl-js/nextjs-16-pages-router', stack: 'Next.js 16 (Pages Router)' },
+  { dir: 'web/maplibre-gl-js/nextjs-15-pages-router', stack: 'Next.js 15 (Pages Router)' },
+  { dir: 'web/maplibre-gl-js/vue-vite', stack: 'Vue (Vite)' },
+  { dir: 'web/maplibre-gl-js/nuxt', stack: 'Nuxt' },
+  { dir: 'web/maplibre-gl-js/angular', stack: 'Angular' },
+  { dir: 'web/maplibre-gl-js/svelte-vite', stack: 'Svelte (Vite)' },
+  { dir: 'web/maplibre-gl-js/sveltekit-3', stack: 'SvelteKit 3' },
+  { dir: 'web/maplibre-gl-js/sveltekit-2', stack: 'SvelteKit 2' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const marker = /<!-- docs-link:start -->[\s\S]*?<!-- docs-link:end -->/;
+const mode = process.argv[2] ?? 'write';
+if (!['write', '--check', '--check-urls'].includes(mode)) {
+  throw new Error(`Unknown option ${mode}`);
+}
 
-for (const { readme, docsPath, label } of examples) {
-  const path = resolve(root, readme);
-  const content = await readFile(path, 'utf8');
-  if (!marker.test(content)) {
-    throw new Error(`Missing documentation link markers in ${readme}`);
+const exists = (path) => access(path).then(() => true, () => false);
+
+function describe({ dir, stack }) {
+  const [, library, folder] = dir.split('/');
+  const name = `${libraries[library]} with ${stack}`;
+  return { name, url: `${DOCS_BASE_URL}${DOCS_PATH}/${library}/${folder}` };
+}
+
+function replaceSection(content, marker, body, file) {
+  const pattern = new RegExp(`<!-- ${marker}:start -->[\\s\\S]*?<!-- ${marker}:end -->`);
+  if (!pattern.test(content)) throw new Error(`Missing ${marker} markers in ${file}`);
+  return content.replace(pattern, `<!-- ${marker}:start -->\n${body}\n<!-- ${marker}:end -->`);
+}
+
+async function nodeRequirement(dir) {
+  const path = join(root, dir, 'package.json');
+  if (!(await exists(path))) return 'Not needed';
+  const { engines } = JSON.parse(await readFile(path, 'utf8'));
+  // Pipes in version ranges must be escaped inside a Markdown table cell.
+  return engines?.node ? `\`${engines.node.replaceAll('|', '\\|')}\`` : 'Any';
+}
+
+async function exampleTable() {
+  const rows = ['| Stack | Folder | Guide | Node.js |', '| --- | --- | --- | --- |'];
+  for (const example of examples) {
+    const { name, url } = describe(example);
+    rows.push(`| ${example.stack} | [\`${example.dir}\`](${example.dir}) | [${name}](${url}) | ${await nodeRequirement(example.dir)} |`);
   }
-  const link = `<!-- docs-link:start -->\n[${label}](${DOCS_BASE_URL}${docsPath})\n<!-- docs-link:end -->`;
-  await writeFile(path, content.replace(marker, link));
+  return rows.join('\n');
+}
+
+async function expectedFiles() {
+  const files = new Map();
+  for (const example of examples) {
+    const { name, url } = describe(example);
+    const path = join(example.dir, 'README.md');
+    const content = await readFile(join(root, path), 'utf8');
+    files.set(path, replaceSection(content, 'docs-link', `Documentation: [${name}](${url})`, path));
+  }
+  const readme = await readFile(join(root, 'README.md'), 'utf8');
+  files.set('README.md', replaceSection(readme, 'examples', await exampleTable(), 'README.md'));
+  return files;
+}
+
+async function exampleFolders() {
+  const folders = [];
+  for (const library of await readdir(join(root, 'web'))) {
+    for (const folder of await readdir(join(root, 'web', library))) folders.push(`web/${library}/${folder}`);
+  }
+  return folders;
+}
+
+if (mode === '--check-urls') {
+  let failed = false;
+  for (const example of examples) {
+    const { url } = describe(example);
+    const response = await fetch(url, { method: 'HEAD', redirect: 'follow' })
+      .catch((error) => ({ ok: false, status: error.message }));
+    console.log(`${response.ok ? 'ok  ' : 'FAIL'} ${response.status} ${url}`);
+    failed ||= !response.ok;
+  }
+  process.exitCode = failed ? 1 : 0;
+} else {
+  const unlisted = (await exampleFolders()).filter((folder) => !examples.some(({ dir }) => dir === folder));
+  if (unlisted.length > 0) throw new Error(`Add these examples to scripts/sync-docs-links.mjs: ${unlisted.join(', ')}`);
+
+  const stale = [];
+  for (const [path, expected] of await expectedFiles()) {
+    const current = await readFile(join(root, path), 'utf8');
+    if (current.replace(/\r\n/g, '\n') === expected.replace(/\r\n/g, '\n')) continue;
+    if (mode === '--check') stale.push(path);
+    else await writeFile(join(root, path), expected);
+  }
+  if (stale.length > 0) {
+    console.error(`Out of date: ${stale.join(', ')}. Run node scripts/sync-docs-links.mjs.`);
+    process.exitCode = 1;
+  }
 }

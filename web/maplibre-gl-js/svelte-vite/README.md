@@ -1,19 +1,31 @@
-# Parsimap with MapLibre GL JS, Svelte, and Vite
+# Parsimap + MapLibre GL JS + Svelte (Vite)
 
 <!-- docs-link:start -->
-[MapLibre GL JS Svelte and Vite guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-svelte-vite)
+Documentation: [MapLibre GL JS with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/svelte-vite)
 <!-- docs-link:end -->
 
-1. Run `npm install`.
-2. Copy `.env.example` to `.env.local` and replace `YOUR_TOKEN_HERE` with your Parsimap token.
-3. Run `npm run dev`.
+## Requirements
 
-## Examples
+- A Parsimap map token from the [Parsimap dashboard](https://dashboard.parsimap.ir/auth/signup).
+- Node.js `^20.19.0 || >=22.12.0`.
+- npm, with a committed `package-lock.json`. Yarn, pnpm, and Bun also work, but they are not lock-tested.
 
-`src/App.svelte` keeps the map instance in a plain variable. To try the state-based example, change the import in `src/main.js` to:
+## Setup and run
 
-```js
-import App from './StatefulMap.svelte';
-```
+1. Run `npm ci`.
+2. Copy `.env.example` to `.env.local` and replace `YOUR_TOKEN_HERE` with your token. Vite exposes only `VITE_`-prefixed variables to browser code, and `.env.local` is ignored by Git.
+3. Run `npm run dev` and open http://localhost:5173.
 
-`src/StatefulMap.svelte` stores the map instance in a `$state.raw` variable and renders an initialization status.
+## Build and preview
+
+`npm run build`, then `npm run preview` and open http://localhost:4173.
+
+## Stateful variant
+
+Open http://localhost:5173/stateful. `src/StatefulMap.svelte` keeps the map instance in `$state.raw` and shows its initialization status. Use this pattern when other parts of your UI need the map instance, for example to add markers or respond to map events.
+
+## Files
+
+- `src/Map.svelte`: the map component.
+- `src/StatefulMap.svelte`: the stateful variant.
+- `src/vite-env.d.ts`: types the token variable.

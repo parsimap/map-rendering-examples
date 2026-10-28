@@ -1,11 +1,30 @@
-# Parsimap with MapLibre GL JS and SvelteKit 2
+# Parsimap + MapLibre GL JS + SvelteKit 2
 
 <!-- docs-link:start -->
-[MapLibre GL JS SvelteKit 2 guide](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js-sveltekit-2)
+Documentation: [MapLibre GL JS with SvelteKit 2](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/sveltekit-2)
 <!-- docs-link:end -->
 
-1. Run `npm install`.
-2. Copy `.env.example` to `.env` and replace `YOUR_TOKEN_HERE` with your Parsimap token.
-3. Run `npm run dev`.
+## Requirements
 
-To use the reactive example, import `StatefulMap.svelte` in `src/routes/+page.svelte` in place of `Map.svelte`.
+- A Parsimap map token from the [Parsimap dashboard](https://dashboard.parsimap.ir/auth/signup).
+- Node.js `^20.19.0 || >=22.12.0`.
+- npm, with a committed `package-lock.json`. Yarn, pnpm, and Bun also work, but they are not lock-tested.
+
+## Setup and run
+
+1. Run `npm ci`.
+2. Copy `.env.example` to `.env` and replace `YOUR_TOKEN_HERE` with your token. `$env/dynamic/public` reads `PUBLIC_`-prefixed variables at runtime, and `.env` is ignored by Git.
+3. Run `npm run dev` and open http://localhost:5173.
+
+## Build and preview
+
+`npm run build`, then `npm run preview` and open http://localhost:4173.
+
+## Stateful variant
+
+Open http://localhost:5173/stateful. `src/lib/StatefulMap.svelte` keeps the map instance in `$state.raw` and shows its initialization status. Use this pattern when other parts of your UI need the map instance, for example to add markers or respond to map events.
+
+## Files
+
+- `src/lib/Map.svelte`: the map component.
+- `src/lib/StatefulMap.svelte`: the stateful variant.
