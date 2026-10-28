@@ -5,6 +5,31 @@ import { dirname, resolve } from 'node:path';
 const DOCS_BASE_URL = 'https://docs.parsimap.dev';
 const examples = [
   {
+    readme: 'web/maplibre-gl-js/nextjs-15-pages-router-js/README.md',
+    docsPath: '/docs/Render%20Maps/maplibre-gl-js-nextjs-15-pages',
+    label: 'MapLibre GL JS Next.js 15 Pages Router guide',
+  },
+  {
+    readme: 'web/maplibre-gl-js/sveltekit-2-js/README.md',
+    docsPath: '/docs/Render%20Maps/maplibre-gl-js-sveltekit-2',
+    label: 'MapLibre GL JS SvelteKit 2 guide',
+  },
+  {
+    readme: 'web/maplibre-gl-js/nextjs-pages-router-js/README.md',
+    docsPath: '/docs/Render%20Maps/maplibre-gl-js-nextjs-pages',
+    label: 'MapLibre GL JS Next.js Pages Router guide',
+  },
+  {
+    readme: 'web/maplibre-gl-js/webpack-vanilla-js/README.md',
+    docsPath: '/docs/Render%20Maps/maplibre-gl-js-webpack',
+    label: 'MapLibre GL JS webpack and JavaScript guide',
+  },
+  {
+    readme: 'web/maplibre-gl-js/webpack-react-js/README.md',
+    docsPath: '/docs/Render%20Maps/maplibre-gl-js-react-vite',
+    label: 'MapLibre GL JS React and Vite guide',
+  },
+  {
     readme: 'web/maplibre-gl-js/sveltekit-js/README.md',
     docsPath: '/docs/Render%20Maps/maplibre-gl-js-sveltekit',
     label: 'MapLibre GL JS SvelteKit guide',

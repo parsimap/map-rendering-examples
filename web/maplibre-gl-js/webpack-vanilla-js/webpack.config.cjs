@@ -1,0 +1,10 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: { path: path.resolve(__dirname, 'dist'), clean: true },
+  devServer: { client: { overlay: { errors: true, warnings: false } } },
+  module: { rules: [{ test: /\.css$/i, use: ['style-loader', 'css-loader'] }] },
+  plugins: [new HtmlWebpackPlugin({ template: './index.html' })],
+};
