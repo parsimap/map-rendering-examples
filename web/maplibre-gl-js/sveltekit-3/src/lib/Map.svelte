@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
   import { PUBLIC_PMI_MAP_TOKEN } from '$app/env/public';
   import * as maplibregl from 'maplibre-gl';
@@ -7,7 +7,7 @@
 
   const STYLE_ID = 'parsimap-streets-v11';
 
-  let container;
+  let container: HTMLDivElement;
   let error = $state('');
 
   onMount(() => {
@@ -17,7 +17,7 @@
       return;
     }
 
-    let instance;
+    let instance: maplibregl.Map | undefined;
     try {
       maplibregl.setWorkerUrl(workerUrl);
       instance = new maplibregl.Map({
@@ -36,7 +36,7 @@
       return;
     }
 
-    return () => instance.remove();
+    return () => instance?.remove();
   });
 </script>
 

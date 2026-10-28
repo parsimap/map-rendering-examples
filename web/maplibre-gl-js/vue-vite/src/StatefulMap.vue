@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, onUnmounted, ref, shallowRef } from 'vue';
 import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -8,8 +8,8 @@ const STYLE_ID = 'parsimap-streets-v11';
 
 maplibregl.setWorkerUrl(workerUrl);
 
-const container = ref(null);
-const map = shallowRef(null);
+const container = ref<HTMLDivElement | null>(null);
+const map = shallowRef<maplibregl.Map | null>(null);
 const error = ref('');
 
 onMounted(() => {
@@ -18,8 +18,9 @@ onMounted(() => {
     error.value = 'Set VITE_PMI_MAP_TOKEN in .env.local.';
     return;
   }
+  if (!container.value) return;
 
-  let instance;
+  let instance: maplibregl.Map | undefined;
   try {
     instance = new maplibregl.Map({
       container: container.value,
@@ -28,7 +29,9 @@ onMounted(() => {
       zoom: 11,
     });
     instance.addControl(new maplibregl.NavigationControl());
-    instance.on('error', () => { error.value = 'The map could not load. Check your token and network connection.'; });
+    instance.on('error', () => {
+      error.value = 'The map could not load. Check your token and network connection.';
+    });
     map.value = instance;
   } catch {
     instance?.remove();
@@ -49,4 +52,3 @@ onUnmounted(() => {
     <div ref="container" style="width: 100%; height: 500px"></div>
   </main>
 </template>
-

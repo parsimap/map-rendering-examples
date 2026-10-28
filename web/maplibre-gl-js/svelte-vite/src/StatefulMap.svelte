@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
   import * as maplibregl from 'maplibre-gl';
   import 'maplibre-gl/dist/maplibre-gl.css';
@@ -8,8 +8,8 @@
 
   maplibregl.setWorkerUrl(workerUrl);
 
-  let container;
-  let map = $state.raw(null);
+  let container: HTMLDivElement;
+  let map = $state.raw<maplibregl.Map | null>(null);
   let error = $state('');
 
   onMount(() => {
@@ -19,7 +19,7 @@
       return;
     }
 
-    let instance;
+    let instance: maplibregl.Map | undefined;
     try {
       instance = new maplibregl.Map({
         container,
@@ -39,7 +39,7 @@
     }
 
     return () => {
-      instance.remove();
+      instance?.remove();
       map = null;
     };
   });
