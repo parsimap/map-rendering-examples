@@ -13,8 +13,12 @@ const DOCS_BASE_URL = 'https://docs.parsimap.dev';
 // documented at <DOCS_PATH>/<library>/<folder>.
 const DOCS_PATH = '/docs/Render%20Maps';
 
-const libraries = { 'maplibre-gl-js': 'MapLibre GL JS' };
+const libraries = {
+  'mapbox-gl-js': 'Mapbox GL JS',
+  'maplibre-gl-js': 'MapLibre GL JS',
+};
 const examples = [
+  { dir: 'web/mapbox-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/maplibre-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/maplibre-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/maplibre-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
