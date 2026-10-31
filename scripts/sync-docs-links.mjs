@@ -25,6 +25,7 @@ const examples = [
   { dir: 'web/mapbox-gl-js/react-webpack', stack: 'React (webpack)' },
   { dir: 'web/mapbox-gl-js/nextjs-app-router', stack: 'Next.js (App Router)' },
   { dir: 'web/mapbox-gl-js/nextjs-16-pages-router', stack: 'Next.js 16 (Pages Router)' },
+  { dir: 'web/mapbox-gl-js/nextjs-15-pages-router', stack: 'Next.js 15 (Pages Router)' },
   { dir: 'web/maplibre-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/maplibre-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/maplibre-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
