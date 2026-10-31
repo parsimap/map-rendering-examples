@@ -10,7 +10,7 @@ Documentation: [Mapbox GL JS with JavaScript (Vite)](https://docs.parsimap.dev/d
 - Node.js `^20.19.0 || >=22.12.0`.
 - npm, with a committed `package-lock.json`. Yarn, pnpm, and Bun also work, but they are not lock-tested.
 
-This example intentionally pins Mapbox GL JS `1.13.3`, the final v1 release under the BSD 3-Clause license. This legacy release is no longer maintained. It does not need a Mapbox access token here because the Parsimap style and its resources do not use `mapbox://` URLs. Mapbox GL JS 2 and later have different licensing and token requirements.
+This example intentionally pins Mapbox GL JS `1.13.3`, the final v1 release under the BSD 3-Clause license. This legacy release is no longer maintained. Mapbox GL JS 2 and later have different licensing and token requirements.
 
 ## Setup and run
 
