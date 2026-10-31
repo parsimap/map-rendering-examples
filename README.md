@@ -7,6 +7,7 @@ Runnable examples for displaying interactive Parsimap maps. Each example is a mi
 <!-- examples:start -->
 | Stack | Folder | Guide | Node.js |
 | --- | --- | --- | --- |
+| JavaScript (CDN) | [`web/mapbox-gl-js/javascript-cdn`](web/mapbox-gl-js/javascript-cdn) | [Mapbox GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/javascript-cdn) | Not needed |
 | JavaScript (Vite) | [`web/mapbox-gl-js/vite-javascript`](web/mapbox-gl-js/vite-javascript) | [Mapbox GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/vite-javascript) | `^20.19.0 \|\| >=22.12.0` |
 | JavaScript (CDN) | [`web/maplibre-gl-js/javascript-cdn`](web/maplibre-gl-js/javascript-cdn) | [MapLibre GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/javascript-cdn) | Not needed |
 | JavaScript (Vite) | [`web/maplibre-gl-js/vite-javascript`](web/maplibre-gl-js/vite-javascript) | [MapLibre GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/vite-javascript) | `^20.19.0 \|\| >=22.12.0` |
@@ -40,7 +41,7 @@ Every framework example serves a second page at `/stateful` that keeps the map i
 
 ## Token safety
 
-A map token used in a web page is visible in the browser's network requests. Never commit a real token: each example reads it from a file that Git ignores, except the CDN example, where you edit `main.js` directly.
+A map token used in a web page is visible in the browser's network requests. Never commit a real token: each example reads it from a file that Git ignores, except the CDN examples, where you edit `main.js` directly.
 
 ## Package managers
 
