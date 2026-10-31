@@ -9,6 +9,7 @@ Runnable examples for displaying interactive Parsimap maps. Each example is a mi
 | --- | --- | --- | --- |
 | JavaScript (CDN) | [`web/mapbox-gl-js/javascript-cdn`](web/mapbox-gl-js/javascript-cdn) | [Mapbox GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/javascript-cdn) | Not needed |
 | JavaScript (Vite) | [`web/mapbox-gl-js/vite-javascript`](web/mapbox-gl-js/vite-javascript) | [Mapbox GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/vite-javascript) | `^20.19.0 \|\| >=22.12.0` |
+| JavaScript (webpack) | [`web/mapbox-gl-js/webpack-javascript`](web/mapbox-gl-js/webpack-javascript) | [Mapbox GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/webpack-javascript) | `>=22.15.0` |
 | JavaScript (CDN) | [`web/maplibre-gl-js/javascript-cdn`](web/maplibre-gl-js/javascript-cdn) | [MapLibre GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/javascript-cdn) | Not needed |
 | JavaScript (Vite) | [`web/maplibre-gl-js/vite-javascript`](web/maplibre-gl-js/vite-javascript) | [MapLibre GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/vite-javascript) | `^20.19.0 \|\| >=22.12.0` |
 | JavaScript (webpack) | [`web/maplibre-gl-js/webpack-javascript`](web/maplibre-gl-js/webpack-javascript) | [MapLibre GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/webpack-javascript) | `>=22.15.0` |
