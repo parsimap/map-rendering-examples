@@ -31,6 +31,7 @@ const examples = [
   { dir: 'web/mapbox-gl-js/angular', stack: 'Angular' },
   { dir: 'web/mapbox-gl-js/svelte-vite', stack: 'Svelte (Vite)' },
   { dir: 'web/mapbox-gl-js/sveltekit-3', stack: 'SvelteKit 3' },
+  { dir: 'web/mapbox-gl-js/sveltekit-2', stack: 'SvelteKit 2' },
   { dir: 'web/maplibre-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/maplibre-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/maplibre-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
