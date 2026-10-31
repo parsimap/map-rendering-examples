@@ -4,6 +4,15 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 const STYLE_ID = 'parsimap-streets-v11';
 
+const preloadMapboxPlugins = (cdnUrl = 'https://cdn.parsimap.ir') => {
+  if (mapboxgl.getRTLTextPluginStatus() === 'unavailable') {
+    mapboxgl.setRTLTextPlugin(
+      `${cdnUrl}/third-party/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js`,
+      () => {},
+    );
+  }
+};
+
 export default function Map() {
   const container = useRef<HTMLDivElement>(null);
   const [error, setError] = useState('');
@@ -22,6 +31,7 @@ export default function Map() {
 
     let map: mapboxgl.Map | undefined;
     try {
+      preloadMapboxPlugins();
       map = new mapboxgl.Map({
         container: container.current,
         style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(token)}`,

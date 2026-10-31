@@ -4,6 +4,15 @@ import { mapToken } from './map-token.example';
 
 const STYLE_ID = 'parsimap-streets-v11';
 
+const preloadMapboxPlugins = (cdnUrl = 'https://cdn.parsimap.ir') => {
+  if (mapboxgl.getRTLTextPluginStatus() === 'unavailable') {
+    mapboxgl.setRTLTextPlugin(
+      `${cdnUrl}/third-party/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js`,
+      () => {},
+    );
+  }
+};
+
 @Component({
   selector: 'app-map',
   template: `
@@ -28,6 +37,7 @@ export class MapComponent {
         return;
       }
       try {
+        preloadMapboxPlugins();
         this.map = new mapboxgl.Map({
           container: this.container().nativeElement,
           style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(mapToken)}`,
