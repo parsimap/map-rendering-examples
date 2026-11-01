@@ -22,8 +22,13 @@ This example intentionally pins Mapbox GL JS `1.13.3`, the final v1 release unde
 
 Run `npm run typecheck` and `npm run build`, then run `npm run preview` and open http://localhost:3000.
 
+## Stateful variant
+
+Open http://localhost:3000/stateful. `app/components/StatefulMap.client.vue` keeps the map instance in a `shallowRef` and shows its initialization status. Use this pattern when other parts of your UI need the map instance, for example to add markers or respond to map events.
+
 ## Files
 
 - `app/components/Map.client.vue`: creates and cleans up the browser-only map instance.
+- `app/components/StatefulMap.client.vue`: the stateful variant.
 - `app/pages/index.vue`: renders the map and defines page metadata.
 - `nuxt.config.ts`: declares the public Parsimap token setting.

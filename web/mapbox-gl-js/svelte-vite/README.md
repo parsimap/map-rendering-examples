@@ -22,9 +22,14 @@ This example intentionally pins Mapbox GL JS `1.13.3`, the final v1 release unde
 
 Run `npm run typecheck` and `npm run build`, then run `npm run preview` and open http://localhost:4173.
 
+## Stateful variant
+
+Open http://localhost:5173/stateful. `src/StatefulMap.svelte` keeps the map instance in `$state.raw` and shows its initialization status. Use this pattern when other parts of your UI need the map instance, for example to add markers or respond to map events.
+
 ## Files
 
 - `src/Map.svelte`: creates and cleans up the map instance.
+- `src/StatefulMap.svelte`: the stateful variant.
 - `src/vite-env.d.ts`: types the Parsimap token variable.
 - `src/main.ts`: mounts the map component.
 - `index.html`: provides page metadata and the application mount point.

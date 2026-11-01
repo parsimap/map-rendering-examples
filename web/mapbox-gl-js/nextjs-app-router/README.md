@@ -24,8 +24,13 @@ This example intentionally pins Mapbox GL JS `1.13.3`, the final v1 release unde
 
 Run `npm run typecheck` and `npm run build`, then run `npm start` and open http://localhost:3000.
 
+## Stateful variant
+
+Open http://localhost:3000/stateful. `app/StatefulMap.tsx` keeps the map instance in React state and shows its initialization status. Use this pattern when other parts of your UI need the map instance, for example to add markers or respond to map events.
+
 ## Files
 
 - `app/Map.tsx`: creates and cleans up the client-side map instance.
+- `app/StatefulMap.tsx`: the stateful variant.
 - `app/page.tsx`: renders the map component.
 - `app/layout.tsx`: loads the Mapbox GL JS stylesheet and defines page metadata.
