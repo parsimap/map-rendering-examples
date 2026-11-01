@@ -1,63 +1,54 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { PUBLIC_PMI_MAP_TOKEN } from '$app/env/public';
+  import mapboxgl from 'mapbox-gl';
   import 'mapbox-gl/dist/mapbox-gl.css';
 
   const STYLE_ID = 'parsimap-streets-v11';
+
+  const preloadMapboxPlugins = (cdnUrl = 'https://cdn.parsimap.ir') => {
+    if (mapboxgl.getRTLTextPluginStatus() === 'unavailable') {
+      mapboxgl.setRTLTextPlugin(
+        `${cdnUrl}/third-party/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js`,
+        () => {},
+      );
+    }
+  };
 
   let container: HTMLDivElement;
   let error = $state('');
 
   onMount(() => {
-    let disposed = false;
-    let instance: import('mapbox-gl').Map | undefined;
-
-    async function initialize() {
-      const token = PUBLIC_PMI_MAP_TOKEN;
-      if (!token || token === 'YOUR_TOKEN_HERE') {
-        error = 'Set PUBLIC_PMI_MAP_TOKEN in .env.';
-        return;
-      }
-
-      try {
-        const { default: mapboxgl } = await import('mapbox-gl');
-        if (disposed) return;
-        if (!mapboxgl.supported()) {
-          error = 'This browser does not support the WebGL features required to display the map.';
-          return;
-        }
-
-        const preloadMapboxPlugins = (cdnUrl = 'https://cdn.parsimap.ir') => {
-          if (mapboxgl.getRTLTextPluginStatus() === 'unavailable') {
-            mapboxgl.setRTLTextPlugin(
-              `${cdnUrl}/third-party/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js`,
-              () => {},
-            );
-          }
-        };
-
-        preloadMapboxPlugins();
-        instance = new mapboxgl.Map({
-          container,
-          style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(token)}`,
-          center: [51.389, 35.6892],
-          zoom: 11,
-        });
-        instance.addControl(new mapboxgl.NavigationControl());
-        instance.on('error', () => {
-          error = 'The map could not load. Check your token and network connection.';
-        });
-      } catch {
-        instance?.remove();
-        if (!disposed) error = 'The map could not start. Check your browser and token.';
-      }
+    const token = PUBLIC_PMI_MAP_TOKEN;
+    if (!mapboxgl.supported()) {
+      error = 'This browser does not support the WebGL features required to display the map.';
+      return;
+    }
+    if (!token || token === 'YOUR_TOKEN_HERE') {
+      error = 'Set PUBLIC_PMI_MAP_TOKEN in .env.';
+      return;
     }
 
-    void initialize();
-    return () => {
-      disposed = true;
+    let instance: mapboxgl.Map | undefined;
+    try {
+      preloadMapboxPlugins();
+      instance = new mapboxgl.Map({
+        container,
+        style: `https://api.parsimap.ir/styles/${STYLE_ID}?key=${encodeURIComponent(token)}`,
+        center: [51.389, 35.6892],
+        zoom: 11,
+      });
+      instance.addControl(new mapboxgl.NavigationControl());
+      instance.on('error', () => {
+        error = 'The map could not load. Check your token and network connection.';
+      });
+    } catch {
       instance?.remove();
-    };
+      error = 'The map could not start. Check your browser and token.';
+      return;
+    }
+
+    return () => instance?.remove();
   });
 </script>
 
