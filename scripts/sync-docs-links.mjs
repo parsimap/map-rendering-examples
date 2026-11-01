@@ -14,10 +14,12 @@ const DOCS_BASE_URL = 'https://docs.parsimap.dev';
 const DOCS_PATH = '/docs/Render%20Maps';
 
 const libraries = {
+  leaflet: 'Leaflet',
   'mapbox-gl-js': 'Mapbox GL JS',
   'maplibre-gl-js': 'MapLibre GL JS',
 };
 const examples = [
+  { dir: 'web/leaflet/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/mapbox-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/mapbox-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/mapbox-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
