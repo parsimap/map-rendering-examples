@@ -45,8 +45,13 @@ export class MapComponent implements AfterViewInit, OnDestroy {
         `https://api.parsimap.ir/tile/${TILESET_ID}/{z}/{x}/{y}?key=${encodeURIComponent(mapToken)}`,
         { attribution: ATTRIBUTION, minZoom: 1, maxZoom: 18 },
       );
+      let hasLoadedTile = false;
+      tiles.on('tileload', () => {
+        hasLoadedTile = true;
+        this.error.set('');
+      });
       tiles.on('tileerror', () => {
-        this.error.set('The map tiles could not load. Check your token and network connection.');
+        if (!hasLoadedTile) this.error.set('The map tiles could not load. Check your token and network connection.');
       });
       tiles.addTo(this.map);
     } catch {

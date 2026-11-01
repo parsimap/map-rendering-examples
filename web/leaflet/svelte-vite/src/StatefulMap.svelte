@@ -32,8 +32,13 @@
         `https://api.parsimap.ir/tile/${TILESET_ID}/{z}/{x}/{y}?key=${encodeURIComponent(token)}`,
         { attribution: ATTRIBUTION, minZoom: 1, maxZoom: 18 },
       );
+      let hasLoadedTile = false;
+      tiles.on('tileload', () => {
+        hasLoadedTile = true;
+        error = '';
+      });
       tiles.on('tileerror', () => {
-        error = 'The map tiles could not load. Check your token and network connection.';
+        if (!hasLoadedTile) error = 'The map tiles could not load. Check your token and network connection.';
       });
       tiles.addTo(instance);
       map = instance;
