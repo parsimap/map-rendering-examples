@@ -1,1 +1,1 @@
-export const mapToken = 'YOUR_TOKEN_HERE';
+export const mapToken: string = 'YOUR_TOKEN_HERE';
