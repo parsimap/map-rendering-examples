@@ -1,6 +1,6 @@
 import { Component, DestroyRef, ElementRef, afterNextRender, inject, signal, viewChild } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
-import { mapToken } from './map-token.example';
+import { mapToken } from './map-token';
 
 const STYLE_ID = 'parsimap-streets-v11';
 
@@ -33,7 +33,7 @@ export class MapComponent {
         return;
       }
       if (!mapToken || mapToken === 'YOUR_TOKEN_HERE') {
-        this.error.set('Set your token in src/map-token.example.ts.');
+        this.error.set('Set your token in src/map-token.ts.');
         return;
       }
       try {

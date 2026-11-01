@@ -15,7 +15,7 @@ This example intentionally pins Mapbox GL JS `1.13.3`, the final v1 release unde
 ## Setup and run
 
 1. Run `npm ci`.
-2. Replace `YOUR_TOKEN_HERE` in `src/map-token.example.ts` with your public Parsimap web token. Angular CLI has no `.env` support, so restore the placeholder before committing changes and never commit a private or secret token.
+2. Copy `src/map-token.example.ts` to `src/map-token.ts` and replace `YOUR_TOKEN_HERE` with your token. The Angular CLI has no `.env` support, so the token lives in `src/map-token.ts`, which is ignored by Git.
 3. Run `npm start` and open http://localhost:4200.
 
 ## Build
@@ -25,6 +25,6 @@ Run `npm run typecheck` and `npm run build`. The production site is written to `
 ## Files
 
 - `src/map.component.ts`: creates and destroys the map instance.
-- `src/map-token.example.ts`: provides the committed safe placeholder used by clean builds.
+- `src/map-token.example.ts`: the template for the ignored `src/map-token.ts`.
 - `src/app.component.ts`: provides the semantic page landmark.
 - `angular.json`: loads the Mapbox GL JS stylesheet.
