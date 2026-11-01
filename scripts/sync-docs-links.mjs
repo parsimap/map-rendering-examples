@@ -31,6 +31,7 @@ const examples = [
   { dir: 'web/leaflet/nuxt', stack: 'Nuxt' },
   { dir: 'web/leaflet/angular', stack: 'Angular' },
   { dir: 'web/leaflet/svelte-vite', stack: 'Svelte (Vite)' },
+  { dir: 'web/leaflet/sveltekit-3', stack: 'SvelteKit 3' },
   { dir: 'web/mapbox-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/mapbox-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/mapbox-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },

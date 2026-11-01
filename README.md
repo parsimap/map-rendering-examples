@@ -19,6 +19,7 @@ Runnable examples for displaying interactive Parsimap maps. Each example is a mi
 | Nuxt | [`web/leaflet/nuxt`](web/leaflet/nuxt) | [Leaflet with Nuxt](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/nuxt) | `^22.22.3 \|\| ^24.15.0 \|\| >=26.0.0` |
 | Angular | [`web/leaflet/angular`](web/leaflet/angular) | [Leaflet with Angular](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/angular) | `^22.22.3 \|\| ^24.15.0 \|\| >=26.0.0` |
 | Svelte (Vite) | [`web/leaflet/svelte-vite`](web/leaflet/svelte-vite) | [Leaflet with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/svelte-vite) | `^20.19.0 \|\| >=22.12.0` |
+| SvelteKit 3 | [`web/leaflet/sveltekit-3`](web/leaflet/sveltekit-3) | [Leaflet with SvelteKit 3](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/sveltekit-3) | `>=22.17.0` |
 | JavaScript (CDN) | [`web/mapbox-gl-js/javascript-cdn`](web/mapbox-gl-js/javascript-cdn) | [Mapbox GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/javascript-cdn) | Not needed |
 | JavaScript (Vite) | [`web/mapbox-gl-js/vite-javascript`](web/mapbox-gl-js/vite-javascript) | [Mapbox GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/vite-javascript) | `^20.19.0 \|\| >=22.12.0` |
 | JavaScript (webpack) | [`web/mapbox-gl-js/webpack-javascript`](web/mapbox-gl-js/webpack-javascript) | [Mapbox GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/webpack-javascript) | `>=22.15.0` |
