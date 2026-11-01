@@ -27,6 +27,7 @@ const examples = [
   { dir: 'web/leaflet/nextjs-app-router', stack: 'Next.js (App Router)' },
   { dir: 'web/leaflet/nextjs-16-pages-router', stack: 'Next.js 16 (Pages Router)' },
   { dir: 'web/leaflet/nextjs-15-pages-router', stack: 'Next.js 15 (Pages Router)' },
+  { dir: 'web/leaflet/vue-vite', stack: 'Vue (Vite)' },
   { dir: 'web/mapbox-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/mapbox-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/mapbox-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
