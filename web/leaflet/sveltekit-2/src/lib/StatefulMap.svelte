@@ -4,6 +4,8 @@
   import type { Map as LeafletMap } from 'leaflet';
   import 'leaflet/dist/leaflet.css';
 
+  const TILESET_ID = 'parsimap-streets-v11-raster';
+
   const ATTRIBUTION = '<a href="https://www.mapbox.com/about/maps">&copy; Mapbox</a> | <a href="https://www.openstreetmap.org/about/">&copy; OpenStreetMap</a> | <a href="https://www.parsimap.ir">&copy; Parsimap</a>';
 
   let container: HTMLDivElement;
@@ -31,7 +33,7 @@
           }
 
           const tiles = L.tileLayer(
-            `https://api.parsimap.ir/tile/parsimap/{z}/{x}/{y}?key=${encodeURIComponent(token)}`,
+            `https://api.parsimap.ir/tile/${TILESET_ID}/{z}/{x}/{y}?key=${encodeURIComponent(token)}`,
             { attribution: ATTRIBUTION, minZoom: 1, maxZoom: 18 },
           );
           tiles.on('tileerror', () => {
