@@ -13,8 +13,25 @@ const DOCS_BASE_URL = 'https://docs.parsimap.dev';
 // documented at <DOCS_PATH>/<library>/<folder>.
 const DOCS_PATH = '/docs/Render%20Maps';
 
-const libraries = { 'maplibre-gl-js': 'MapLibre GL JS' };
+const libraries = {
+  'mapbox-gl-js': 'Mapbox GL JS',
+  'maplibre-gl-js': 'MapLibre GL JS',
+};
 const examples = [
+  { dir: 'web/mapbox-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
+  { dir: 'web/mapbox-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
+  { dir: 'web/mapbox-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
+  { dir: 'web/mapbox-gl-js/react-vite', stack: 'React (Vite)' },
+  { dir: 'web/mapbox-gl-js/react-webpack', stack: 'React (webpack)' },
+  { dir: 'web/mapbox-gl-js/nextjs-app-router', stack: 'Next.js (App Router)' },
+  { dir: 'web/mapbox-gl-js/nextjs-16-pages-router', stack: 'Next.js 16 (Pages Router)' },
+  { dir: 'web/mapbox-gl-js/nextjs-15-pages-router', stack: 'Next.js 15 (Pages Router)' },
+  { dir: 'web/mapbox-gl-js/vue-vite', stack: 'Vue (Vite)' },
+  { dir: 'web/mapbox-gl-js/nuxt', stack: 'Nuxt' },
+  { dir: 'web/mapbox-gl-js/angular', stack: 'Angular' },
+  { dir: 'web/mapbox-gl-js/svelte-vite', stack: 'Svelte (Vite)' },
+  { dir: 'web/mapbox-gl-js/sveltekit-3', stack: 'SvelteKit 3' },
+  { dir: 'web/mapbox-gl-js/sveltekit-2', stack: 'SvelteKit 2' },
   { dir: 'web/maplibre-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/maplibre-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/maplibre-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },

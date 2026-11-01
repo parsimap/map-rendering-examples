@@ -1,0 +1,30 @@
+{
+  "name": "parsimap-mapbox-sveltekit-2",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "mapbox-gl": "1.13.3"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "6.1.1",
+    "@sveltejs/kit": "2.70.3",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "@types/mapbox-gl": "1.13.10",
+    "svelte": "5.57.3",
+    "svelte-check": "4.7.7",
+    "typescript": "6.0.3",
+    "vite": "8.3.5"
+  },
+  "overrides": {
+    "@mapbox/jsonlint-lines-primitives": "2.0.2"
+  }
+}

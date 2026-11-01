@@ -7,6 +7,20 @@ Runnable examples for displaying interactive Parsimap maps. Each example is a mi
 <!-- examples:start -->
 | Stack | Folder | Guide | Node.js |
 | --- | --- | --- | --- |
+| JavaScript (CDN) | [`web/mapbox-gl-js/javascript-cdn`](web/mapbox-gl-js/javascript-cdn) | [Mapbox GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/javascript-cdn) | Not needed |
+| JavaScript (Vite) | [`web/mapbox-gl-js/vite-javascript`](web/mapbox-gl-js/vite-javascript) | [Mapbox GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/vite-javascript) | `^20.19.0 \|\| >=22.12.0` |
+| JavaScript (webpack) | [`web/mapbox-gl-js/webpack-javascript`](web/mapbox-gl-js/webpack-javascript) | [Mapbox GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/webpack-javascript) | `>=22.15.0` |
+| React (Vite) | [`web/mapbox-gl-js/react-vite`](web/mapbox-gl-js/react-vite) | [Mapbox GL JS with React (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/react-vite) | `^20.19.0 \|\| >=22.12.0` |
+| React (webpack) | [`web/mapbox-gl-js/react-webpack`](web/mapbox-gl-js/react-webpack) | [Mapbox GL JS with React (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/react-webpack) | `>=22.15.0` |
+| Next.js (App Router) | [`web/mapbox-gl-js/nextjs-app-router`](web/mapbox-gl-js/nextjs-app-router) | [Mapbox GL JS with Next.js (App Router)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/nextjs-app-router) | `>=20.9.0` |
+| Next.js 16 (Pages Router) | [`web/mapbox-gl-js/nextjs-16-pages-router`](web/mapbox-gl-js/nextjs-16-pages-router) | [Mapbox GL JS with Next.js 16 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/nextjs-16-pages-router) | `>=20.9.0` |
+| Next.js 15 (Pages Router) | [`web/mapbox-gl-js/nextjs-15-pages-router`](web/mapbox-gl-js/nextjs-15-pages-router) | [Mapbox GL JS with Next.js 15 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/nextjs-15-pages-router) | `^18.18.0 \|\| ^19.8.0 \|\| >=20.0.0` |
+| Vue (Vite) | [`web/mapbox-gl-js/vue-vite`](web/mapbox-gl-js/vue-vite) | [Mapbox GL JS with Vue (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/vue-vite) | `^20.19.0 \|\| >=22.12.0` |
+| Nuxt | [`web/mapbox-gl-js/nuxt`](web/mapbox-gl-js/nuxt) | [Mapbox GL JS with Nuxt](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/nuxt) | `^22.22.3 \|\| ^24.15.0 \|\| >=26.0.0` |
+| Angular | [`web/mapbox-gl-js/angular`](web/mapbox-gl-js/angular) | [Mapbox GL JS with Angular](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/angular) | `^22.22.3 \|\| ^24.15.0 \|\| >=26.0.0` |
+| Svelte (Vite) | [`web/mapbox-gl-js/svelte-vite`](web/mapbox-gl-js/svelte-vite) | [Mapbox GL JS with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/svelte-vite) | `^20.19.0 \|\| >=22.12.0` |
+| SvelteKit 3 | [`web/mapbox-gl-js/sveltekit-3`](web/mapbox-gl-js/sveltekit-3) | [Mapbox GL JS with SvelteKit 3](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/sveltekit-3) | `>=22.17.0` |
+| SvelteKit 2 | [`web/mapbox-gl-js/sveltekit-2`](web/mapbox-gl-js/sveltekit-2) | [Mapbox GL JS with SvelteKit 2](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/sveltekit-2) | `^20.19.0 \|\| >=22.12.0` |
 | JavaScript (CDN) | [`web/maplibre-gl-js/javascript-cdn`](web/maplibre-gl-js/javascript-cdn) | [MapLibre GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/javascript-cdn) | Not needed |
 | JavaScript (Vite) | [`web/maplibre-gl-js/vite-javascript`](web/maplibre-gl-js/vite-javascript) | [MapLibre GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/vite-javascript) | `^20.19.0 \|\| >=22.12.0` |
 | JavaScript (webpack) | [`web/maplibre-gl-js/webpack-javascript`](web/maplibre-gl-js/webpack-javascript) | [MapLibre GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/webpack-javascript) | `>=22.15.0` |
@@ -39,7 +53,7 @@ Every framework example serves a second page at `/stateful` that keeps the map i
 
 ## Token safety
 
-A map token used in a web page is visible in the browser's network requests. Never commit a real token: each example reads it from a file that Git ignores, except the CDN example, where you edit `main.js` directly.
+A map token used in a web page is visible in the browser's network requests. Never commit a real token: each example reads it from a file that Git ignores, except the CDN examples, where you edit `main.js` directly.
 
 ## Package managers
 
