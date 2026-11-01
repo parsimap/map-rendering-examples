@@ -24,6 +24,7 @@ const examples = [
   { dir: 'web/leaflet/webpack-javascript', stack: 'JavaScript (webpack)' },
   { dir: 'web/leaflet/react-vite', stack: 'React (Vite)' },
   { dir: 'web/leaflet/react-webpack', stack: 'React (webpack)' },
+  { dir: 'web/leaflet/nextjs-app-router', stack: 'Next.js (App Router)' },
   { dir: 'web/mapbox-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/mapbox-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/mapbox-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
