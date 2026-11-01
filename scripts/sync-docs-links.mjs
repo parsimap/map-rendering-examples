@@ -22,6 +22,7 @@ const examples = [
   { dir: 'web/leaflet/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/leaflet/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/leaflet/webpack-javascript', stack: 'JavaScript (webpack)' },
+  { dir: 'web/leaflet/react-vite', stack: 'React (Vite)' },
   { dir: 'web/mapbox-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/mapbox-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/mapbox-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
