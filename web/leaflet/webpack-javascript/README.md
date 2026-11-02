@@ -1,0 +1,29 @@
+# Parsimap + Leaflet + JavaScript (webpack)
+
+<!-- docs-link:start -->
+Documentation: [Leaflet with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/webpack-javascript)
+<!-- docs-link:end -->
+
+## Requirements
+
+- A Parsimap map token from the [Parsimap dashboard](https://dashboard.parsimap.ir/auth/signup).
+- Node.js `>=22.15.0`.
+- npm, with a committed `package-lock.json`. Yarn, pnpm, and Bun also work, but they are not lock-tested.
+
+This example pins Leaflet `1.9.4`, the latest stable Leaflet 1 release.
+
+## Setup and run
+
+1. Run `npm ci`.
+2. Copy `.env.example` to `.env.local` and replace `YOUR_TOKEN_HERE` with your token. `webpack.config.cjs` loads `.env.local` with dotenv and inlines `PMI_MAP_TOKEN` with `DefinePlugin`; `.env.local` is ignored by Git.
+3. Run `npm start` and open http://localhost:8080.
+
+## Build and preview
+
+`npm run build` writes the site to `dist/`; serve that folder with any static server.
+
+## Files
+
+- `index.html`: contains the map container and accessible error status.
+- `src/index.js`: creates the map and loads Parsimap raster tiles.
+- `webpack.config.cjs`: loads the token and bundles the application.

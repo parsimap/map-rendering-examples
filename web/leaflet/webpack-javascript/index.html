@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A minimal Parsimap raster map rendered with Leaflet 1.9.4 and webpack.">
+    <title>Parsimap + Leaflet + JavaScript (webpack)</title>
+    <style>
+      #map {
+        width: 100%;
+        height: 500px;
+      }
+
+      .leaflet-control-attribution {
+        direction: ltr;
+        unicode-bidi: isolate;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p id="map-error" role="alert" hidden></p>
+      <div
+        id="map"
+        role="region"
+        aria-label="Interactive map of Tehran"
+        aria-describedby="map-error"
+      ></div>
+    </main>
+  </body>
+</html>

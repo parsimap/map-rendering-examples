@@ -7,6 +7,20 @@ Runnable examples for displaying interactive Parsimap maps. Each example is a mi
 <!-- examples:start -->
 | Stack | Folder | Guide | Node.js |
 | --- | --- | --- | --- |
+| JavaScript (CDN) | [`web/leaflet/javascript-cdn`](web/leaflet/javascript-cdn) | [Leaflet with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/javascript-cdn) | Not needed |
+| JavaScript (Vite) | [`web/leaflet/vite-javascript`](web/leaflet/vite-javascript) | [Leaflet with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/vite-javascript) | `^20.19.0 \|\| >=22.12.0` |
+| JavaScript (webpack) | [`web/leaflet/webpack-javascript`](web/leaflet/webpack-javascript) | [Leaflet with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/webpack-javascript) | `>=22.15.0` |
+| React (Vite) | [`web/leaflet/react-vite`](web/leaflet/react-vite) | [Leaflet with React (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/react-vite) | `^20.19.0 \|\| >=22.12.0` |
+| React (webpack) | [`web/leaflet/react-webpack`](web/leaflet/react-webpack) | [Leaflet with React (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/react-webpack) | `>=22.15.0` |
+| Next.js (App Router) | [`web/leaflet/nextjs-app-router`](web/leaflet/nextjs-app-router) | [Leaflet with Next.js (App Router)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/nextjs-app-router) | `>=20.9.0` |
+| Next.js 16 (Pages Router) | [`web/leaflet/nextjs-16-pages-router`](web/leaflet/nextjs-16-pages-router) | [Leaflet with Next.js 16 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/nextjs-16-pages-router) | `>=20.9.0` |
+| Next.js 15 (Pages Router) | [`web/leaflet/nextjs-15-pages-router`](web/leaflet/nextjs-15-pages-router) | [Leaflet with Next.js 15 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/nextjs-15-pages-router) | `^18.18.0 \|\| ^19.8.0 \|\| >=20.0.0` |
+| Vue (Vite) | [`web/leaflet/vue-vite`](web/leaflet/vue-vite) | [Leaflet with Vue (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/vue-vite) | `^20.19.0 \|\| >=22.12.0` |
+| Nuxt | [`web/leaflet/nuxt`](web/leaflet/nuxt) | [Leaflet with Nuxt](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/nuxt) | `^22.22.3 \|\| ^24.15.0 \|\| >=26.0.0` |
+| Angular | [`web/leaflet/angular`](web/leaflet/angular) | [Leaflet with Angular](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/angular) | `^22.22.3 \|\| ^24.15.0 \|\| >=26.0.0` |
+| Svelte (Vite) | [`web/leaflet/svelte-vite`](web/leaflet/svelte-vite) | [Leaflet with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/svelte-vite) | `^20.19.0 \|\| >=22.12.0` |
+| SvelteKit 3 | [`web/leaflet/sveltekit-3`](web/leaflet/sveltekit-3) | [Leaflet with SvelteKit 3](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/sveltekit-3) | `>=22.17.0` |
+| SvelteKit 2 | [`web/leaflet/sveltekit-2`](web/leaflet/sveltekit-2) | [Leaflet with SvelteKit 2](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/sveltekit-2) | `^20.19.0 \|\| >=22.12.0` |
 | JavaScript (CDN) | [`web/mapbox-gl-js/javascript-cdn`](web/mapbox-gl-js/javascript-cdn) | [Mapbox GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/javascript-cdn) | Not needed |
 | JavaScript (Vite) | [`web/mapbox-gl-js/vite-javascript`](web/mapbox-gl-js/vite-javascript) | [Mapbox GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/vite-javascript) | `^20.19.0 \|\| >=22.12.0` |
 | JavaScript (webpack) | [`web/mapbox-gl-js/webpack-javascript`](web/mapbox-gl-js/webpack-javascript) | [Mapbox GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/webpack-javascript) | `>=22.15.0` |

@@ -14,10 +14,25 @@ const DOCS_BASE_URL = 'https://docs.parsimap.dev';
 const DOCS_PATH = '/docs/Render%20Maps';
 
 const libraries = {
+  leaflet: 'Leaflet',
   'mapbox-gl-js': 'Mapbox GL JS',
   'maplibre-gl-js': 'MapLibre GL JS',
 };
 const examples = [
+  { dir: 'web/leaflet/javascript-cdn', stack: 'JavaScript (CDN)' },
+  { dir: 'web/leaflet/vite-javascript', stack: 'JavaScript (Vite)' },
+  { dir: 'web/leaflet/webpack-javascript', stack: 'JavaScript (webpack)' },
+  { dir: 'web/leaflet/react-vite', stack: 'React (Vite)' },
+  { dir: 'web/leaflet/react-webpack', stack: 'React (webpack)' },
+  { dir: 'web/leaflet/nextjs-app-router', stack: 'Next.js (App Router)' },
+  { dir: 'web/leaflet/nextjs-16-pages-router', stack: 'Next.js 16 (Pages Router)' },
+  { dir: 'web/leaflet/nextjs-15-pages-router', stack: 'Next.js 15 (Pages Router)' },
+  { dir: 'web/leaflet/vue-vite', stack: 'Vue (Vite)' },
+  { dir: 'web/leaflet/nuxt', stack: 'Nuxt' },
+  { dir: 'web/leaflet/angular', stack: 'Angular' },
+  { dir: 'web/leaflet/svelte-vite', stack: 'Svelte (Vite)' },
+  { dir: 'web/leaflet/sveltekit-3', stack: 'SvelteKit 3' },
+  { dir: 'web/leaflet/sveltekit-2', stack: 'SvelteKit 2' },
   { dir: 'web/mapbox-gl-js/javascript-cdn', stack: 'JavaScript (CDN)' },
   { dir: 'web/mapbox-gl-js/vite-javascript', stack: 'JavaScript (Vite)' },
   { dir: 'web/mapbox-gl-js/webpack-javascript', stack: 'JavaScript (webpack)' },
