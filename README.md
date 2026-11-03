@@ -51,6 +51,7 @@ Runnable examples for displaying interactive Parsimap maps. Each example is a mi
 | SvelteKit 2 | [`web/maplibre-gl-js/sveltekit-2`](web/maplibre-gl-js/sveltekit-2) | [MapLibre GL JS with SvelteKit 2](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/sveltekit-2) | `^20.19.0 \|\| >=22.12.0` |
 | Kotlin (Android Views) | [`android/maplibre-native-android/kotlin-views`](android/maplibre-native-android/kotlin-views) | [MapLibre Native Android with Kotlin (Android Views)](https://docs.parsimap.dev/docs/Render%20Maps/android/maplibre-native-android/kotlin-views) | Not needed |
 | Kotlin (Jetpack Compose) | [`android/maplibre-native-android/kotlin-compose`](android/maplibre-native-android/kotlin-compose) | [MapLibre Native Android with Kotlin (Jetpack Compose)](https://docs.parsimap.dev/docs/Render%20Maps/android/maplibre-native-android/kotlin-compose) | Not needed |
+| Java (Android Views) | [`android/maplibre-native-android/java-views`](android/maplibre-native-android/java-views) | [MapLibre Native Android with Java (Android Views)](https://docs.parsimap.dev/docs/Render%20Maps/android/maplibre-native-android/java-views) | Not needed |
 <!-- examples:end -->
 
 Every framework example serves a second page at `/stateful` that keeps the map instance in framework state. The example READMEs explain when to use it.
