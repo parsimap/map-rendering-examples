@@ -20,7 +20,7 @@
   "devDependencies": {
     "@types/mapbox-gl": "1.13.10",
     "typescript": "6.0.3",
-    "vue-tsc": "3.3.13"
+    "vue-tsc": "3.3.14"
   },
   "overrides": {
     "@mapbox/jsonlint-lines-primitives": "2.0.2"

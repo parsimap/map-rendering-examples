@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "8.0.0",
-    "@sveltejs/kit": "3.1.0",
+    "@sveltejs/kit": "3.1.1",
     "@sveltejs/vite-plugin-svelte": "7.3.1",
     "@types/mapbox-gl": "1.13.10",
     "svelte": "5.57.3",
