@@ -9,14 +9,16 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 
 const DOCS_BASE_URL = 'https://docs.parsimap.dev';
-// Example folders are named after their guide: web/<library>/<folder> is
+// Example folders are named after their guide: <platform>/<library>/<folder> is
 // documented at <DOCS_PATH>/<library>/<folder>.
 const DOCS_PATH = '/docs/Render%20Maps';
+const PLATFORMS = ['web', 'android'];
 
 const libraries = {
   leaflet: 'Leaflet',
   'mapbox-gl-js': 'Mapbox GL JS',
   'maplibre-gl-js': 'MapLibre GL JS',
+  'maplibre-native-android': 'MapLibre Native Android',
 };
 const examples = [
   { dir: 'web/leaflet/javascript-cdn', stack: 'JavaScript (CDN)' },
@@ -61,6 +63,7 @@ const examples = [
   { dir: 'web/maplibre-gl-js/svelte-vite', stack: 'Svelte (Vite)' },
   { dir: 'web/maplibre-gl-js/sveltekit-3', stack: 'SvelteKit 3' },
   { dir: 'web/maplibre-gl-js/sveltekit-2', stack: 'SvelteKit 2' },
+  { dir: 'android/maplibre-native-android/kotlin-views', stack: 'Kotlin (Android Views)' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -115,8 +118,11 @@ async function expectedFiles() {
 
 async function exampleFolders() {
   const folders = [];
-  for (const library of await readdir(join(root, 'web'))) {
-    for (const folder of await readdir(join(root, 'web', library))) folders.push(`web/${library}/${folder}`);
+  for (const platform of PLATFORMS) {
+    if (!(await exists(join(root, platform)))) continue;
+    for (const library of await readdir(join(root, platform))) {
+      for (const folder of await readdir(join(root, platform, library))) folders.push(`${platform}/${library}/${folder}`);
+    }
   }
   return folders;
 }
