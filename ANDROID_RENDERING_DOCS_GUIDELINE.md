@@ -24,6 +24,29 @@ Out of scope for the Android section:
 - Google Maps SDK tile overlays, offline maps, markers, location tracking, and other features beyond the basemap.
 - The deleted legacy Mapbox Android SDK 9.x guide. Do not use it as source material.
 
+The guide slug is relative to `docs/Render Maps/android/` in the documentation repository and to `android/` in the examples repository.
+
+### Sidebar hierarchy
+
+The "نمایش نقشه" section is grouped by platform first, so readers never see web, Android, iOS, and cross-platform guides side by side:
+
+```
+نمایش نقشه
+├─ معرفی و انتخاب راهکار                 overview.mdx
+├─ وب                                     web/
+│  └─ MapLibre GL JS, Mapbox GL JS, Leaflet → web stacks, troubleshooting
+├─ Android                                android/
+│  ├─ MapLibre Native Android             → Kotlin + Views, Kotlin + Compose, Java + Views, troubleshooting
+│  └─ Mapbox Maps SDK for Android         → Kotlin + Views, Kotlin + Compose, Java + Views, troubleshooting
+├─ iOS                                    ios/ (library → stack, like Android)
+└─ Android و iOS                          cross-platform/ (framework → library)
+```
+
+- Platform folders are `web`, `android`, `ios`, and `cross-platform`, each with a `_category_.json` generated index and an explicit `slug` (`/category/render-maps-<platform>`). Platform labels are `وب`, `Android`, `iOS`, and `Android و iOS`.
+- On native platforms the library comes first, because it decides raster support, account requirements, and troubleshooting. Language and UI toolkit are leaves.
+- In `cross-platform`, the framework comes first (Flutter, React Native, Kotlin Multiplatform) and its map packages are the leaves, because the framework is already fixed for those readers.
+- Number `position` within each level starting at 1, in the order the overview recommends.
+
 Raster tiles appear only in the MapLibre guides, as the native counterpart of the Leaflet web guides. Mapbox guides stay vector-only so that raster usage never depends on a Mapbox account.
 
 ## Supported toolchain baseline
@@ -90,16 +113,16 @@ Both repositories follow the same contract so guides and examples stay identical
 - MapLibre examples contain two launcher activities: the vector map and the raster map (`RasterMapActivity` or its Compose equivalent). The raster activity is the source of the guide's raster section and the counterpart of the web `/stateful` page.
 - Commit `local.properties.example` containing `PARSIMAP_MAP_TOKEN=YOUR_TOKEN_HERE` (and `MAPBOX_ACCESS_TOKEN=YOUR_MAPBOX_TOKEN_HERE` for Mapbox). `local.properties` stays ignored.
 - Keep code, comments, and READMEs in English. Each README follows the web README structure: title `Parsimap + <library> + <language> (<toolkit>)`, the generated documentation link, Requirements (map token, Android Studio version, JDK 17, Android SDK platform, device or emulator with OpenGL ES 3.0 and the stated minSdk), Setup and run (copy the token line, open in Android Studio or run `./gradlew installDebug`), and Files.
-- Add every Android example to `scripts/sync-docs-links.mjs` and the root README table. Extend the script's library list and path mapping so `android/<library>/<folder>` resolves to `/docs/Render Maps/<library>/<folder>`.
+- Add every Android example to `scripts/sync-docs-links.mjs` and the root README table. The script maps `<platform>/<library>/<folder>` to `/docs/Render Maps/<platform>/<library>/<folder>`, so the example and guide paths always match.
 - CI builds every example on each pull request: list `android/*/*/settings.gradle.kts`, set up JDK 17 (Temurin) and Gradle caching, then run `./gradlew assembleDebug lint`. An emulator smoke test may be added on a KVM-enabled Linux runner; it does not replace device verification.
 - Dependabot opens one Gradle update pull request per Android example folder, ignores major versions, and ignores MapLibre `*-globe` versions.
 
 ## Documentation repository (`parsimap/document-page-generator`)
 
 - Do not modify any `.mdx` file without explicit approval (see `AGENTS.md`). Present the required `.mdx` changes for review first.
-- Place the guides under `docs/Render Maps/maplibre-native-android/` and `docs/Render Maps/mapbox-maps-android/`, each with a `_category_.json` generated index, `_next-steps.mdx`, and `troubleshooting.mdx`. Name guide files for the stack only: `kotlin-views.mdx`, `kotlin-compose.mdx`, `java-views.mdx`.
-- Replace the placeholder in the overview's Android tab with library tabs (`MapLibre Native Android 13.7.1`, `Mapbox Maps SDK 11.34.1`) and a guide table with the columns زبان, رابط کاربری, نسخه, and راهنما. State there that the Mapbox SDK requires a Mapbox account and token.
-- Use `docs/Render Maps/maplibre-gl-js/vite-javascript.mdx` as the structure and tone reference. Title and sidebar label name the library, language, and toolkit, for example `نمایش نقشه با MapLibre Native Android، Kotlin و Android Views` and `Kotlin + Views`. Set `map_rendering_guide: true`.
+- Place the guides under `docs/Render Maps/android/maplibre-native-android/` and `docs/Render Maps/android/mapbox-maps-android/`, each with a `_category_.json` generated index, `_next-steps.mdx`, and `troubleshooting.mdx`. Name guide files for the stack only: `kotlin-views.mdx`, `kotlin-compose.mdx`, `java-views.mdx`.
+- List each guide in the overview's Android tab: one library tab per library (`MapLibre Native Android 13.7.1`, `Mapbox Maps SDK 11.34.1`) with a guide table whose columns are زبان, رابط کاربری, نسخه Android, and راهنما. State there that the Mapbox SDK requires a Mapbox account and token.
+- Use `docs/Render Maps/web/maplibre-gl-js/vite-javascript.mdx` as the structure and tone reference. Title and sidebar label name the library, language, and toolkit, for example `نمایش نقشه با MapLibre Native Android، Kotlin و Android Views` and `Kotlin + Views`. Set `map_rendering_guide: true`.
 - Guide sections, in order:
   1. `ServiceIntro` with a one-paragraph introduction.
   2. `## پیش‌نیازها`: map token, an existing Android project, the minSdk, JDK 17, and (Mapbox only) a Mapbox account and public token.

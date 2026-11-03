@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + Angular
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with Angular](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/angular)
+Documentation: [Mapbox GL JS with Angular](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/angular)
 <!-- docs-link:end -->
 
 ## Requirements

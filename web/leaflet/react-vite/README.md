@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + React (Vite)
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with React (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/react-vite)
+Documentation: [Leaflet with React (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/react-vite)
 <!-- docs-link:end -->
 
 ## Requirements

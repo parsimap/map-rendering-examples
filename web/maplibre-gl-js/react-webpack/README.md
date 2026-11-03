@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + React (webpack)
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with React (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/react-webpack)
+Documentation: [MapLibre GL JS with React (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/react-webpack)
 <!-- docs-link:end -->
 
 ## Requirements

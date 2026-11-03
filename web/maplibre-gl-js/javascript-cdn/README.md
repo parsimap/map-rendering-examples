@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + JavaScript (CDN)
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/javascript-cdn)
+Documentation: [MapLibre GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/javascript-cdn)
 <!-- docs-link:end -->
 
 ## Requirements

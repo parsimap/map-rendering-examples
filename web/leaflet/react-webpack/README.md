@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + React (webpack)
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with React (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/react-webpack)
+Documentation: [Leaflet with React (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/react-webpack)
 <!-- docs-link:end -->
 
 ## Requirements

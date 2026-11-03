@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + Vue (Vite)
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with Vue (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/vue-vite)
+Documentation: [Leaflet with Vue (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/vue-vite)
 <!-- docs-link:end -->
 
 ## Requirements

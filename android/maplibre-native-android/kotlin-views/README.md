@@ -1,7 +1,7 @@
 # Parsimap + MapLibre Native Android + Kotlin (Android Views)
 
 <!-- docs-link:start -->
-Documentation: [MapLibre Native Android with Kotlin (Android Views)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-native-android/kotlin-views)
+Documentation: [MapLibre Native Android with Kotlin (Android Views)](https://docs.parsimap.dev/docs/Render%20Maps/android/maplibre-native-android/kotlin-views)
 <!-- docs-link:end -->
 
 ## Requirements

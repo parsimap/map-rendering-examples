@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + Svelte (Vite)
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/svelte-vite)
+Documentation: [MapLibre GL JS with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/svelte-vite)
 <!-- docs-link:end -->
 
 ## Requirements

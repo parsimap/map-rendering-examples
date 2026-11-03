@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + Svelte (Vite)
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/svelte-vite)
+Documentation: [Mapbox GL JS with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/svelte-vite)
 <!-- docs-link:end -->
 
 ## Requirements

@@ -10,7 +10,7 @@ import { dirname, join, resolve } from 'node:path';
 
 const DOCS_BASE_URL = 'https://docs.parsimap.dev';
 // Example folders are named after their guide: <platform>/<library>/<folder> is
-// documented at <DOCS_PATH>/<library>/<folder>.
+// documented at <DOCS_PATH>/<platform>/<library>/<folder>.
 const DOCS_PATH = '/docs/Render%20Maps';
 const PLATFORMS = ['web', 'android'];
 
@@ -75,9 +75,9 @@ if (!['write', '--check', '--check-urls'].includes(mode)) {
 const exists = (path) => access(path).then(() => true, () => false);
 
 function describe({ dir, stack }) {
-  const [, library, folder] = dir.split('/');
+  const [platform, library, folder] = dir.split('/');
   const name = `${libraries[library]} with ${stack}`;
-  return { name, url: `${DOCS_BASE_URL}${DOCS_PATH}/${library}/${folder}` };
+  return { name, url: `${DOCS_BASE_URL}${DOCS_PATH}/${platform}/${library}/${folder}` };
 }
 
 function replaceSection(content, marker, body, file) {

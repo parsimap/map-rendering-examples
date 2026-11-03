@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + Nuxt
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with Nuxt](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/nuxt)
+Documentation: [MapLibre GL JS with Nuxt](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/nuxt)
 <!-- docs-link:end -->
 
 ## Requirements

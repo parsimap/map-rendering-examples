@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + JavaScript (Vite)
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/vite-javascript)
+Documentation: [Leaflet with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/vite-javascript)
 <!-- docs-link:end -->
 
 ## Requirements

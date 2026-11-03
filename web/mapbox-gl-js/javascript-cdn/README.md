@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + JavaScript (CDN)
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/javascript-cdn)
+Documentation: [Mapbox GL JS with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/javascript-cdn)
 <!-- docs-link:end -->
 
 ## Requirements

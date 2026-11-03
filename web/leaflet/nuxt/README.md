@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + Nuxt
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with Nuxt](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/nuxt)
+Documentation: [Leaflet with Nuxt](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/nuxt)
 <!-- docs-link:end -->
 
 ## Requirements
