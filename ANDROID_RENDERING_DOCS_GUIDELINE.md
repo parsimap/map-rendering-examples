@@ -35,11 +35,12 @@ Every example and guide targets one stated baseline. Versions below were resolve
 | Android Gradle Plugin | 9.5.0 | AGP release notes |
 | Gradle wrapper | 9.6.0 | AGP compatibility table |
 | JDK | 17 | AGP compatibility table |
-| compileSdk / targetSdk | 36 / 36 (confirm against current Google Play target API requirements) | Android developers, Play Console policy |
-| minSdk | the highest minimum among the libraries used; 21 unless a library requires more (confirm per library) | library documentation and published AAR manifest |
-| Kotlin | latest stable release compatible with AGP 9.5 (confirm at implementation time) | Kotlin and AGP release notes |
+| compileSdk / targetSdk | 36 / 36. Google Play requires targetSdk 36 for new apps and updates from 2026-08-31. | Play target API level requirements |
+| minSdk | 23: the minimum of MapLibre Native 13 and of current AndroidX libraries. Raise it only if a library requires more. | published AAR manifests |
+| Kotlin | No separate version: AGP 9 compiles Kotlin with its built-in Kotlin support, so examples do not apply `org.jetbrains.kotlin.android`. | AGP built-in Kotlin migration guide |
+| AndroidX (Views examples) | `androidx.activity:activity:1.13.0`, `androidx.core:core-ktx:1.18.0`. core 1.19 requires compileSdk 37. | Google Maven, AAR metadata |
 | Compose BOM | latest stable BOM (confirm against the BOM mapping page) | Compose BOM mapping |
-| MapLibre Native Android | `org.maplibre.gl:android-sdk:13.7.1` | maplibre-native GitHub releases (`android-v*`) |
+| MapLibre Native Android | `org.maplibre.gl:android-sdk-opengl:13.7.1`. The unsuffixed `android-sdk` artifact uses Vulkan in MapLibre 13. | maplibre-native GitHub releases (`android-v*`), publishing config |
 | maplibre-compose | `org.maplibre.compose:maplibre-compose:0.20.0` + `org.maplibre.compose:maplibre-compose-runtime-opengl-android:0.20.0` | maplibre-compose documentation |
 | Mapbox Maps SDK for Android | `com.mapbox.maps:android-ndk27:11.34.1` | Mapbox Android install guide |
 | Mapbox Maps Compose extension | `com.mapbox.extension:maps-compose-ndk27:11.34.1` | Mapbox Android install guide |
@@ -50,7 +51,7 @@ Version rules:
 - MapLibre Native publishes calendar-versioned `*-globe` pre-releases that Maven Central currently reports as its latest release. Never use them; pin the latest stable `android-v<major>.<minor>.<patch>` release.
 - maplibre-compose is pre-1.0 and minor releases may break its API. Use the same version for the library and its runtime artifact, and treat every minor upgrade as a guide update.
 - Use the Mapbox `-ndk27` artifacts. They provide the 16 KB page size support Google Play requires.
-- Use the OpenGL ES renderer by default. Vulkan variants are mentioned only in troubleshooting.
+- Use the OpenGL ES renderer by default (`android-sdk-opengl`, `maplibre-compose-runtime-opengl-android`). Vulkan variants are mentioned only in troubleshooting.
 - Cover the latest stable major of each library only, unless a previous major is still supported upstream and is needed by real users.
 
 ### Toolchain variations
@@ -62,7 +63,7 @@ One baseline is documented per guide. Toolchain differences do not produce separ
 | Build Tools, NDK | Not mentioned. AGP selects them and the map SDKs ship prebuilt. |
 | JDK, minSdk | One line each in the guide's prerequisites. |
 | targetSdk 35+ edge-to-edge | Every example handles window insets so the map, attribution, and logo are not drawn under the system bars. |
-| AGP 8.x / Kotlin 1.9 projects | One "older projects" callout per guide with the extra Gradle plugin lines (`org.jetbrains.kotlin.android`; for Compose, the Compose compiler setup). |
+| AGP 8.x / Kotlin 1.9 projects | One "older projects" callout per guide: keep the existing `org.jetbrains.kotlin.android` plugin (and, for Compose, the existing Compose compiler setup). |
 | Repository declaration | Show `dependencyResolutionManagement` in `settings.gradle.kts` only. Mention once that older projects declare repositories in the root build file. |
 | Gradle DSL | Kotlin DSL (`*.gradle.kts`) only. No Groovy tabs. |
 | Android Studio project template | Guides assume an existing project, so no template steps. Example READMEs name the Android Studio version they were verified with. |
