@@ -89,7 +89,7 @@ One baseline is documented per guide. Toolchain differences do not produce separ
 | AGP 8.x / Kotlin 1.9 projects | One "older projects" callout per guide: keep the existing `org.jetbrains.kotlin.android` plugin (and, for Compose, the existing Compose compiler setup). |
 | Repository declaration | Show `dependencyResolutionManagement` in `settings.gradle.kts` only. Mention once that older projects declare repositories in the root build file. |
 | Gradle DSL | Kotlin DSL (`*.gradle.kts`) only. No Groovy tabs. |
-| Android Studio project template | Guides assume an existing project, so no template steps. Example READMEs name the Android Studio version they were verified with. |
+| Android Studio project template | Guides assume an existing project, so no template steps. Example READMEs name the Android Studio version and emulator or device they were verified with. |
 | Library major versions | A new major is a new guide revision or a separate guide, decided per batch. |
 
 ## Shared integration contract
@@ -147,3 +147,18 @@ A guide is not described as supported until:
 - for Mapbox, the Parsimap style was confirmed to render correctly in Mapbox Maps SDK 11;
 - the docs site builds, the synced sources pass `node scripts/sync-map-examples.mjs --check`, and the example passes `node scripts/sync-docs-links.mjs --check`;
 - no real token is committed.
+
+### Verification environment
+
+All six examples were verified on 2026-11-03 with:
+
+| Component | Configuration |
+| --- | --- |
+| Host OS | Windows 11 Pro 64-bit, build 26200 |
+| Android Studio | 2026.2.2, build `AI-262.10968.63.2622.16730706` |
+| JDK | Android Studio Runtime 25.0.4 |
+| Android SDK | Platforms 36 and 37; Build Tools 36.0.0; Platform Tools 37.0.1 |
+| Emulator | Android Emulator 37.2.13.0, Medium Phone AVD, Android 37, Google Play x86_64 image |
+| Emulator hardware | 4 virtual CPU cores, 2 GB RAM, 1080 × 2400 at 420 dpi, automatic host-GPU acceleration |
+
+Record a new environment here when a guide is re-verified after a baseline change.
