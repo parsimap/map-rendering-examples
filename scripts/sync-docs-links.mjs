@@ -19,6 +19,7 @@ const libraries = {
   'mapbox-gl-js': 'Mapbox GL JS',
   'maplibre-gl-js': 'MapLibre GL JS',
   'maplibre-native-android': 'MapLibre Native Android',
+  'mapbox-maps-android': 'Mapbox Maps SDK for Android',
 };
 const examples = [
   { dir: 'web/leaflet/javascript-cdn', stack: 'JavaScript (CDN)' },
@@ -66,6 +67,7 @@ const examples = [
   { dir: 'android/maplibre-native-android/kotlin-views', stack: 'Kotlin (Android Views)' },
   { dir: 'android/maplibre-native-android/kotlin-compose', stack: 'Kotlin (Jetpack Compose)' },
   { dir: 'android/maplibre-native-android/java-views', stack: 'Java (Android Views)' },
+  { dir: 'android/mapbox-maps-android/kotlin-views', stack: 'Kotlin (Android Views)' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');

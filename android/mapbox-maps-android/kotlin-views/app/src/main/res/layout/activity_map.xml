@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- MainActivity adds the MapView in code, below the error message, once the tokens are set. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/map_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_margin="16dp"
+        android:accessibilityLiveRegion="assertive"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:textColor="#B00020"
+        android:visibility="gone" />
+</FrameLayout>

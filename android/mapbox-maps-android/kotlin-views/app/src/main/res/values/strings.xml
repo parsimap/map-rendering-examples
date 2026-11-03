@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mapbox Kotlin Views</string>
+    <string name="error_missing_token">Set your Parsimap and Mapbox tokens in local.properties.</string>
+    <string name="error_map_load">The map could not load. Check your token and network connection.</string>
+</resources>
