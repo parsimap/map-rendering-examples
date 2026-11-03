@@ -68,6 +68,7 @@ const examples = [
   { dir: 'android/maplibre-native-android/kotlin-compose', stack: 'Kotlin (Jetpack Compose)' },
   { dir: 'android/maplibre-native-android/java-views', stack: 'Java (Android Views)' },
   { dir: 'android/mapbox-maps-android/kotlin-views', stack: 'Kotlin (Android Views)' },
+  { dir: 'android/mapbox-maps-android/kotlin-compose', stack: 'Kotlin (Jetpack Compose)' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
