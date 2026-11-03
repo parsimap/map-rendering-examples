@@ -78,7 +78,7 @@ The examples use npm and commit `package-lock.json`. Yarn, pnpm, and Bun also wo
 
 ## Maintaining the examples
 
-- CI installs, type-checks, and builds every example on each pull request, and checks that the generated README sections are current. Android examples run `./gradlew assembleDebug lint` with JDK 17.
+- CI installs, type-checks, and builds the examples and checks that the generated README sections are current. Android examples run `./gradlew assembleDebug lint` with JDK 17. A pull request builds only the example folders it changes; a change to `.github/workflows/ci.yml` builds every example, and a change to `.nvmrc` builds every web example. Pushes to `main` build every example.
 - `scripts/sync-docs-links.mjs` writes each example's documentation link and the table above. An example folder is named after its guide, so `<platform>/<library>/<folder>` (for example `web/maplibre-gl-js/react-vite`) is documented at `/docs/Render Maps/<platform>/<library>/<folder>`. After adding an example to the script, or changing `DOCS_BASE_URL`, run:
 
   ```sh

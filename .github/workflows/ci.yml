@@ -15,11 +15,25 @@ jobs:
       examples: ${{ steps.list.outputs.examples }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      # Pull requests build only the examples they change, or every example when a shared input changes.
       - id: list
-        run: echo "examples=$(ls -d web/*/*/package.json | xargs -n1 dirname | jq -R . | jq -cs .)" >> "$GITHUB_OUTPUT"
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          examples=$(ls -d web/*/*/package.json | xargs -n1 dirname)
+          if [ -n "$BASE_SHA" ]; then
+            changed=$(git diff --name-only "$BASE_SHA" HEAD)
+            if ! grep -qxE '\.github/workflows/ci\.yml|\.nvmrc' <<< "$changed"; then
+              examples=$(for dir in $examples; do if grep -q "^$dir/" <<< "$changed"; then echo "$dir"; fi; done)
+            fi
+          fi
+          echo "examples=$(printf '%s\n' $examples | jq -R 'select(length > 0)' | jq -cs .)" >> "$GITHUB_OUTPUT"
 
   build:
     needs: list-examples
+    if: needs.list-examples.outputs.examples != '[]'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -48,11 +62,25 @@ jobs:
       examples: ${{ steps.list.outputs.examples }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      # Pull requests build only the examples they change, or every example when ci.yml changes.
       - id: list
-        run: echo "examples=$(ls -d android/*/*/settings.gradle.kts | xargs -n1 dirname | jq -R . | jq -cs .)" >> "$GITHUB_OUTPUT"
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          examples=$(ls -d android/*/*/settings.gradle.kts | xargs -n1 dirname)
+          if [ -n "$BASE_SHA" ]; then
+            changed=$(git diff --name-only "$BASE_SHA" HEAD)
+            if ! grep -qx '\.github/workflows/ci\.yml' <<< "$changed"; then
+              examples=$(for dir in $examples; do if grep -q "^$dir/" <<< "$changed"; then echo "$dir"; fi; done)
+            fi
+          fi
+          echo "examples=$(printf '%s\n' $examples | jq -R 'select(length > 0)' | jq -cs .)" >> "$GITHUB_OUTPUT"
 
   android-build:
     needs: list-android-examples
+    if: needs.list-android-examples.outputs.examples != '[]'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
