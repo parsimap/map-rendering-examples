@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + React (Vite)
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with React (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/react-vite)
+Documentation: [Mapbox GL JS with React (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/react-vite)
 <!-- docs-link:end -->
 
 ## Requirements

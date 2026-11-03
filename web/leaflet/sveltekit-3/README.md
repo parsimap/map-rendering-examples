@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + SvelteKit 3
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with SvelteKit 3](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/sveltekit-3)
+Documentation: [Leaflet with SvelteKit 3](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/sveltekit-3)
 <!-- docs-link:end -->
 
 ## Requirements

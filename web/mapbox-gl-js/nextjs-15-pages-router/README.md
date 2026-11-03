@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + Next.js 15 (Pages Router)
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with Next.js 15 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/nextjs-15-pages-router)
+Documentation: [Mapbox GL JS with Next.js 15 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/nextjs-15-pages-router)
 <!-- docs-link:end -->
 
 ## Requirements

@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + Next.js 16 (Pages Router)
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with Next.js 16 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/nextjs-16-pages-router)
+Documentation: [Leaflet with Next.js 16 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/nextjs-16-pages-router)
 <!-- docs-link:end -->
 
 ## Requirements

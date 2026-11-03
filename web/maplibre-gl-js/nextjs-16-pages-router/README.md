@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + Next.js 16 (Pages Router)
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with Next.js 16 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/nextjs-16-pages-router)
+Documentation: [MapLibre GL JS with Next.js 16 (Pages Router)](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/nextjs-16-pages-router)
 <!-- docs-link:end -->
 
 ## Requirements

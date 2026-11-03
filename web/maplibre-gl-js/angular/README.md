@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + Angular
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with Angular](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/angular)
+Documentation: [MapLibre GL JS with Angular](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/angular)
 <!-- docs-link:end -->
 
 ## Requirements

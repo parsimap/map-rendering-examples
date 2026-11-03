@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + Nuxt
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with Nuxt](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/nuxt)
+Documentation: [Mapbox GL JS with Nuxt](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/nuxt)
 <!-- docs-link:end -->
 
 ## Requirements

@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + React (Vite)
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with React (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/react-vite)
+Documentation: [MapLibre GL JS with React (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/react-vite)
 <!-- docs-link:end -->
 
 ## Requirements

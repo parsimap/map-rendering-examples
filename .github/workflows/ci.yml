@@ -15,11 +15,30 @@ jobs:
       examples: ${{ steps.list.outputs.examples }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      # Pull requests build only the examples a push changes, or every example when a shared input changes.
       - id: list
-        run: echo "examples=$(ls -d web/*/*/package.json | xargs -n1 dirname | jq -R . | jq -cs .)" >> "$GITHUB_OUTPUT"
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BEFORE_SHA: ${{ github.event.action == 'synchronize' && github.event.before || '' }}
+        run: |
+          examples=$(ls -d web/*/*/package.json | xargs -n1 dirname)
+          if [ -n "$HEAD_SHA" ]; then
+            # A new push to an open pull request compares with the previous push; otherwise with the base branch.
+            from="$BASE_SHA"
+            if [ -n "$BEFORE_SHA" ] && git merge-base --is-ancestor "$BEFORE_SHA" "$HEAD_SHA"; then from="$BEFORE_SHA"; fi
+            changed=$(git diff --name-only "$from...$HEAD_SHA")
+            if ! grep -qxE '\.github/workflows/ci\.yml|\.nvmrc' <<< "$changed"; then
+              examples=$(for dir in $examples; do if grep -q "^$dir/" <<< "$changed"; then echo "$dir"; fi; done)
+            fi
+          fi
+          echo "examples=$(printf '%s\n' $examples | jq -R 'select(length > 0)' | jq -cs .)" >> "$GITHUB_OUTPUT"
 
   build:
     needs: list-examples
+    if: needs.list-examples.outputs.examples != '[]'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -41,6 +60,54 @@ jobs:
         run: cp src/map-token.example.ts src/map-token.ts
       - run: npm run typecheck --if-present
       - run: npm run build
+
+  list-android-examples:
+    runs-on: ubuntu-latest
+    outputs:
+      examples: ${{ steps.list.outputs.examples }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      # Pull requests build only the examples a push changes, or every example when ci.yml changes.
+      - id: list
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BEFORE_SHA: ${{ github.event.action == 'synchronize' && github.event.before || '' }}
+        run: |
+          examples=$(ls -d android/*/*/settings.gradle.kts | xargs -n1 dirname)
+          if [ -n "$HEAD_SHA" ]; then
+            # A new push to an open pull request compares with the previous push; otherwise with the base branch.
+            from="$BASE_SHA"
+            if [ -n "$BEFORE_SHA" ] && git merge-base --is-ancestor "$BEFORE_SHA" "$HEAD_SHA"; then from="$BEFORE_SHA"; fi
+            changed=$(git diff --name-only "$from...$HEAD_SHA")
+            if ! grep -qx '\.github/workflows/ci\.yml' <<< "$changed"; then
+              examples=$(for dir in $examples; do if grep -q "^$dir/" <<< "$changed"; then echo "$dir"; fi; done)
+            fi
+          fi
+          echo "examples=$(printf '%s\n' $examples | jq -R 'select(length > 0)' | jq -cs .)" >> "$GITHUB_OUTPUT"
+
+  android-build:
+    needs: list-android-examples
+    if: needs.list-android-examples.outputs.examples != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        example: ${{ fromJSON(needs.list-android-examples.outputs.examples) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.example }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v6
+      # Builds without a map token: the examples read it from an ignored local.properties.
+      - run: ./gradlew assembleDebug lint
 
   docs-links:
     runs-on: ubuntu-latest

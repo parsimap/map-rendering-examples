@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + Next.js (App Router)
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with Next.js (App Router)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/nextjs-app-router)
+Documentation: [Mapbox GL JS with Next.js (App Router)](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/nextjs-app-router)
 <!-- docs-link:end -->
 
 Tested with Next.js 16. The same component works with the Next.js 15 App Router.

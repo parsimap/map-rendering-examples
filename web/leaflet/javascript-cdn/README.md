@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + JavaScript (CDN)
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/javascript-cdn)
+Documentation: [Leaflet with JavaScript (CDN)](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/javascript-cdn)
 <!-- docs-link:end -->
 
 ## Requirements

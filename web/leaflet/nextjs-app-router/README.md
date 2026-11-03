@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + Next.js (App Router)
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with Next.js (App Router)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/nextjs-app-router)
+Documentation: [Leaflet with Next.js (App Router)](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/nextjs-app-router)
 <!-- docs-link:end -->
 
 Tested with Next.js 16. The same component works with the Next.js 15 App Router.

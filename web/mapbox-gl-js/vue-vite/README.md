@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + Vue (Vite)
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with Vue (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/vue-vite)
+Documentation: [Mapbox GL JS with Vue (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/vue-vite)
 <!-- docs-link:end -->
 
 ## Requirements

@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + Angular
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with Angular](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/angular)
+Documentation: [Leaflet with Angular](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/angular)
 <!-- docs-link:end -->
 
 ## Requirements

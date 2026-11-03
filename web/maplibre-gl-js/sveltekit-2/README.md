@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + SvelteKit 2
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with SvelteKit 2](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/sveltekit-2)
+Documentation: [MapLibre GL JS with SvelteKit 2](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/sveltekit-2)
 <!-- docs-link:end -->
 
 ## Requirements

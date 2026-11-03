@@ -9,14 +9,17 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 
 const DOCS_BASE_URL = 'https://docs.parsimap.dev';
-// Example folders are named after their guide: web/<library>/<folder> is
-// documented at <DOCS_PATH>/<library>/<folder>.
+// Example folders are named after their guide: <platform>/<library>/<folder> is
+// documented at <DOCS_PATH>/<platform>/<library>/<folder>.
 const DOCS_PATH = '/docs/Render%20Maps';
+const PLATFORMS = ['web', 'android'];
 
 const libraries = {
   leaflet: 'Leaflet',
   'mapbox-gl-js': 'Mapbox GL JS',
   'maplibre-gl-js': 'MapLibre GL JS',
+  'maplibre-native-android': 'MapLibre Native Android',
+  'mapbox-maps-android': 'Mapbox Maps SDK for Android',
 };
 const examples = [
   { dir: 'web/leaflet/javascript-cdn', stack: 'JavaScript (CDN)' },
@@ -61,6 +64,12 @@ const examples = [
   { dir: 'web/maplibre-gl-js/svelte-vite', stack: 'Svelte (Vite)' },
   { dir: 'web/maplibre-gl-js/sveltekit-3', stack: 'SvelteKit 3' },
   { dir: 'web/maplibre-gl-js/sveltekit-2', stack: 'SvelteKit 2' },
+  { dir: 'android/maplibre-native-android/kotlin-views', stack: 'Kotlin (Android Views)' },
+  { dir: 'android/maplibre-native-android/kotlin-compose', stack: 'Kotlin (Jetpack Compose)' },
+  { dir: 'android/maplibre-native-android/java-views', stack: 'Java (Android Views)' },
+  { dir: 'android/mapbox-maps-android/kotlin-views', stack: 'Kotlin (Android Views)' },
+  { dir: 'android/mapbox-maps-android/kotlin-compose', stack: 'Kotlin (Jetpack Compose)' },
+  { dir: 'android/mapbox-maps-android/java-views', stack: 'Java (Android Views)' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -72,9 +81,9 @@ if (!['write', '--check', '--check-urls'].includes(mode)) {
 const exists = (path) => access(path).then(() => true, () => false);
 
 function describe({ dir, stack }) {
-  const [, library, folder] = dir.split('/');
+  const [platform, library, folder] = dir.split('/');
   const name = `${libraries[library]} with ${stack}`;
-  return { name, url: `${DOCS_BASE_URL}${DOCS_PATH}/${library}/${folder}` };
+  return { name, url: `${DOCS_BASE_URL}${DOCS_PATH}/${platform}/${library}/${folder}` };
 }
 
 function replaceSection(content, marker, body, file) {
@@ -115,8 +124,11 @@ async function expectedFiles() {
 
 async function exampleFolders() {
   const folders = [];
-  for (const library of await readdir(join(root, 'web'))) {
-    for (const folder of await readdir(join(root, 'web', library))) folders.push(`web/${library}/${folder}`);
+  for (const platform of PLATFORMS) {
+    if (!(await exists(join(root, platform)))) continue;
+    for (const library of await readdir(join(root, platform))) {
+      for (const folder of await readdir(join(root, platform, library))) folders.push(`${platform}/${library}/${folder}`);
+    }
   }
   return folders;
 }

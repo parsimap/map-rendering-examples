@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + JavaScript (Vite)
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/vite-javascript)
+Documentation: [Mapbox GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/vite-javascript)
 <!-- docs-link:end -->
 
 ## Requirements

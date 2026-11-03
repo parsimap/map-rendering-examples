@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + Vue (Vite)
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with Vue (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/vue-vite)
+Documentation: [MapLibre GL JS with Vue (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/vue-vite)
 <!-- docs-link:end -->
 
 ## Requirements

@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + JavaScript (webpack)
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/webpack-javascript)
+Documentation: [MapLibre GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/webpack-javascript)
 <!-- docs-link:end -->
 
 ## Requirements

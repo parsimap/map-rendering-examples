@@ -1,7 +1,7 @@
 # Parsimap + MapLibre GL JS + JavaScript (Vite)
 
 <!-- docs-link:start -->
-Documentation: [MapLibre GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/maplibre-gl-js/vite-javascript)
+Documentation: [MapLibre GL JS with JavaScript (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/maplibre-gl-js/vite-javascript)
 <!-- docs-link:end -->
 
 ## Requirements

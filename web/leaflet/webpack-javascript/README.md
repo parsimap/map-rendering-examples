@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + JavaScript (webpack)
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/webpack-javascript)
+Documentation: [Leaflet with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/webpack-javascript)
 <!-- docs-link:end -->
 
 ## Requirements

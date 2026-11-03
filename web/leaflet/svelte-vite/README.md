@@ -1,7 +1,7 @@
 # Parsimap + Leaflet + Svelte (Vite)
 
 <!-- docs-link:start -->
-Documentation: [Leaflet with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/leaflet/svelte-vite)
+Documentation: [Leaflet with Svelte (Vite)](https://docs.parsimap.dev/docs/Render%20Maps/web/leaflet/svelte-vite)
 <!-- docs-link:end -->
 
 ## Requirements

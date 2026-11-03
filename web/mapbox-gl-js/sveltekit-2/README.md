@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + SvelteKit 2
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with SvelteKit 2](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/sveltekit-2)
+Documentation: [Mapbox GL JS with SvelteKit 2](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/sveltekit-2)
 <!-- docs-link:end -->
 
 ## Requirements

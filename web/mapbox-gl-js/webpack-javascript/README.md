@@ -1,7 +1,7 @@
 # Parsimap + Mapbox GL JS + JavaScript (webpack)
 
 <!-- docs-link:start -->
-Documentation: [Mapbox GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/mapbox-gl-js/webpack-javascript)
+Documentation: [Mapbox GL JS with JavaScript (webpack)](https://docs.parsimap.dev/docs/Render%20Maps/web/mapbox-gl-js/webpack-javascript)
 <!-- docs-link:end -->
 
 ## Requirements
