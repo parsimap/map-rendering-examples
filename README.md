@@ -76,8 +76,8 @@ The examples use npm and commit `package-lock.json`. Yarn, pnpm, and Bun also wo
 
 ## Maintaining the examples
 
-- CI installs, type-checks, and builds every example on each pull request, and checks that the generated README sections are current.
-- `scripts/sync-docs-links.mjs` writes each example's documentation link and the table above. An example folder is named after its guide, so `web/<library>/<folder>` is documented at `/docs/Render Maps/<library>/<folder>`. After adding an example to the script, or changing `DOCS_BASE_URL`, run:
+- CI installs, type-checks, and builds every example on each pull request, and checks that the generated README sections are current. Android examples run `./gradlew assembleDebug lint` with JDK 17.
+- `scripts/sync-docs-links.mjs` writes each example's documentation link and the table above. An example folder is named after its guide, so `web/<library>/<folder>` and `android/<library>/<folder>` are documented at `/docs/Render Maps/<library>/<folder>`. After adding an example to the script, or changing `DOCS_BASE_URL`, run:
 
   ```sh
   node scripts/sync-docs-links.mjs

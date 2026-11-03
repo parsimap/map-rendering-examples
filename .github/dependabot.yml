@@ -15,6 +15,20 @@ updates:
       - dependency-name: '*'
         update-types: ['version-update:semver-major']
 
+  # Android examples, one pull request per folder. Ignoring majors also skips
+  # MapLibre Native's calendar-versioned *-globe pre-releases (2026.x).
+  - package-ecosystem: gradle
+    directories:
+      - /android/*/*
+    schedule:
+      interval: weekly
+    groups:
+      dependencies:
+        patterns: ['*']
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
+
   - package-ecosystem: github-actions
     directory: /
     schedule:
