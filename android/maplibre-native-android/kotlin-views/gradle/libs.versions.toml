@@ -1,7 +1,7 @@
 [versions]
 agp = "9.5.0"
 androidxActivity = "1.13.0"
-androidxCore = "1.18.0"
+androidxCore = "1.19.1"
 maplibre = "13.7.1"
 
 [libraries]
