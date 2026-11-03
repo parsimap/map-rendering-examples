@@ -25,6 +25,10 @@ Without both tokens, the app shows a message instead of the map.
 
 `./gradlew assembleDebug lint`
 
+## Verified with
+
+Android Studio 2026.2.2 and Android Emulator 37.2.13 running a Medium Phone AVD (Android 37, Google Play x86_64 image, host-GPU acceleration).
+
 ## Files
 
 - `settings.gradle.kts`: adds the Mapbox Maven repository.

@@ -24,6 +24,10 @@ The app installs two launcher entries: **MapLibre Kotlin Compose** shows the vec
 
 `./gradlew assembleDebug lint`
 
+## Verified with
+
+Android Studio 2026.2.2 and Android Emulator 37.2.13 running a Medium Phone AVD (Android 37, Google Play x86_64 image, host-GPU acceleration).
+
 ## Files
 
 - `build.gradle.kts`: raises the Kotlin Gradle plugin to the version maplibre-compose needs.

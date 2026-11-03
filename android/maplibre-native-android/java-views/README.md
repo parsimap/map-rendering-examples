@@ -24,6 +24,10 @@ The app installs two launcher entries: **MapLibre Java Views** shows the vector 
 
 `./gradlew assembleDebug lint`
 
+## Verified with
+
+Android Studio 2026.2.2 and Android Emulator 37.2.13 running a Medium Phone AVD (Android 37, Google Play x86_64 image, host-GPU acceleration).
+
 ## Files
 
 - `app/build.gradle.kts`: adds MapLibre and reads the token into `BuildConfig`.
