@@ -64,6 +64,7 @@ const examples = [
   { dir: 'web/maplibre-gl-js/sveltekit-3', stack: 'SvelteKit 3' },
   { dir: 'web/maplibre-gl-js/sveltekit-2', stack: 'SvelteKit 2' },
   { dir: 'android/maplibre-native-android/kotlin-views', stack: 'Kotlin (Android Views)' },
+  { dir: 'android/maplibre-native-android/kotlin-compose', stack: 'Kotlin (Jetpack Compose)' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
