@@ -20,6 +20,7 @@ updates:
   - package-ecosystem: gradle
     directories:
       - /android/*/*
+      - /cross-platform/kotlin-multiplatform/*
     schedule:
       interval: weekly
     groups:
