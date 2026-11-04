@@ -79,6 +79,7 @@ const examples = [
   { dir: 'android/mapbox-maps-android/java-views', stack: 'Java (Android Views)' },
   { dir: 'cross-platform/flutter/maplibre-gl', stack: 'Flutter', library: 'maplibre-gl' },
   { dir: 'cross-platform/flutter/mapbox-maps-flutter', stack: 'Flutter', library: 'mapbox-maps-flutter' },
+  { dir: 'cross-platform/flutter/flutter-map', stack: 'Flutter', library: 'flutter-map' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
