@@ -77,6 +77,7 @@ const examples = [
   { dir: 'android/mapbox-maps-android/kotlin-views', stack: 'Kotlin (Android Views)' },
   { dir: 'android/mapbox-maps-android/kotlin-compose', stack: 'Kotlin (Jetpack Compose)' },
   { dir: 'android/mapbox-maps-android/java-views', stack: 'Java (Android Views)' },
+  { dir: 'cross-platform/flutter/maplibre-gl', stack: 'Flutter', library: 'maplibre-gl' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
