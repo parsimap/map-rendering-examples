@@ -109,6 +109,142 @@ jobs:
       # Builds without a map token: the examples read it from an ignored local.properties.
       - run: ./gradlew assembleDebug lint
 
+  list-cross-platform-examples:
+    runs-on: ubuntu-latest
+    outputs:
+      flutter: ${{ steps.list.outputs.flutter }}
+      react-native: ${{ steps.list.outputs.react-native }}
+      kotlin-multiplatform: ${{ steps.list.outputs.kotlin-multiplatform }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      # Pull requests build only the examples a push changes, or every example when ci.yml changes.
+      - id: list
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BEFORE_SHA: ${{ github.event.action == 'synchronize' && github.event.before || '' }}
+        run: |
+          changed=""
+          if [ -n "$HEAD_SHA" ]; then
+            # A new push to an open pull request compares with the previous push; otherwise with the base branch.
+            from="$BASE_SHA"
+            if [ -n "$BEFORE_SHA" ] && git merge-base --is-ancestor "$BEFORE_SHA" "$HEAD_SHA"; then from="$BEFORE_SHA"; fi
+            changed=$(git diff --name-only "$from...$HEAD_SHA")
+          fi
+          list() {
+            examples=$(ls -d $1 2>/dev/null | xargs -rn1 dirname)
+            if [ -n "$HEAD_SHA" ] && ! grep -qx '.github/workflows/ci.yml' <<< "$changed"; then
+              examples=$(for dir in $examples; do if grep -q "^$dir/" <<< "$changed"; then echo "$dir"; fi; done)
+            fi
+            printf '%s
+' $examples | jq -R 'select(length > 0)' | jq -cs .
+          }
+          echo "flutter=$(list 'cross-platform/flutter/*/pubspec.yaml')" >> "$GITHUB_OUTPUT"
+          echo "react-native=$(list 'cross-platform/react-native/*/*/package.json')" >> "$GITHUB_OUTPUT"
+          echo "kotlin-multiplatform=$(list 'cross-platform/kotlin-multiplatform/*/settings.gradle.kts')" >> "$GITHUB_OUTPUT"
+
+  flutter-build:
+    needs: list-cross-platform-examples
+    if: needs.list-cross-platform-examples.outputs.flutter != '[]'
+    strategy:
+      fail-fast: false
+      matrix:
+        example: ${{ fromJSON(needs.list-cross-platform-examples.outputs.flutter) }}
+        platform: [android, ios]
+    runs-on: ${{ matrix.platform == 'ios' && 'macos-26' || 'ubuntu-latest' }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.example }}
+    steps:
+      - uses: actions/checkout@v7
+      - if: matrix.platform == 'android'
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.9
+          cache: true
+      - run: flutter pub get --enforce-lockfile
+      - if: matrix.platform == 'android'
+        run: flutter analyze
+      # Builds without a map token: the examples read it from an ignored config.json.
+      - if: matrix.platform == 'android'
+        run: flutter build apk --debug
+      - if: matrix.platform == 'ios'
+        run: flutter build ios --simulator --debug
+
+  react-native-build:
+    needs: list-cross-platform-examples
+    if: needs.list-cross-platform-examples.outputs.react-native != '[]'
+    strategy:
+      fail-fast: false
+      matrix:
+        example: ${{ fromJSON(needs.list-cross-platform-examples.outputs.react-native) }}
+        platform: [android, ios]
+    runs-on: ${{ matrix.platform == 'ios' && 'macos-26' || 'ubuntu-latest' }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.example }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: ${{ matrix.example }}/package-lock.json
+      - if: matrix.platform == 'android'
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: npm ci
+      # React Native CLI examples read the token from an ignored file.
+      - if: hashFiles(format('{0}/src/map-token.example.ts', matrix.example)) != ''
+        run: cp src/map-token.example.ts src/map-token.ts
+      - if: matrix.platform == 'android'
+        run: npx tsc --noEmit
+      # Expo examples generate their native projects.
+      - if: hashFiles(format('{0}/app.json', matrix.example)) != '' && hashFiles(format('{0}/android/build.gradle', matrix.example)) == ''
+        run: npx expo prebuild --platform ${{ matrix.platform }} --no-install
+      - if: matrix.platform == 'android'
+        working-directory: ${{ matrix.example }}/android
+        run: ./gradlew assembleDebug
+      - if: matrix.platform == 'ios'
+        working-directory: ${{ matrix.example }}/ios
+        run: |
+          pod install
+          workspace=$(ls -d *.xcworkspace)
+          xcodebuild -workspace "$workspace" -scheme "${workspace%.xcworkspace}" -configuration Debug             -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+
+  kotlin-multiplatform-build:
+    needs: list-cross-platform-examples
+    if: needs.list-cross-platform-examples.outputs.kotlin-multiplatform != '[]'
+    strategy:
+      fail-fast: false
+      matrix:
+        example: ${{ fromJSON(needs.list-cross-platform-examples.outputs.kotlin-multiplatform) }}
+        platform: [android, ios]
+    runs-on: ${{ matrix.platform == 'ios' && 'macos-26' || 'ubuntu-latest' }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.example }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v6
+      - if: matrix.platform == 'android'
+        run: ./gradlew :androidApp:assembleDebug :androidApp:lint
+      - if: matrix.platform == 'ios'
+        run: |
+          xcodebuild -project iosApp/iosApp.xcodeproj -scheme iosApp -configuration Debug             -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+
   docs-links:
     runs-on: ubuntu-latest
     steps:
