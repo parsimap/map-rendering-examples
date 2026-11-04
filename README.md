@@ -56,6 +56,7 @@ Runnable examples for displaying interactive Parsimap maps. Each example is a mi
 | Kotlin (Jetpack Compose) | [`android/mapbox-maps-android/kotlin-compose`](android/mapbox-maps-android/kotlin-compose) | [Mapbox Maps SDK for Android with Kotlin (Jetpack Compose)](https://docs.parsimap.dev/docs/Render%20Maps/android/mapbox-maps-android/kotlin-compose) | Not needed |
 | Java (Android Views) | [`android/mapbox-maps-android/java-views`](android/mapbox-maps-android/java-views) | [Mapbox Maps SDK for Android with Java (Android Views)](https://docs.parsimap.dev/docs/Render%20Maps/android/mapbox-maps-android/java-views) | Not needed |
 | Flutter | [`cross-platform/flutter/maplibre-gl`](cross-platform/flutter/maplibre-gl) | [maplibre_gl with Flutter](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/flutter/maplibre-gl) | Not needed |
+| Flutter | [`cross-platform/flutter/mapbox-maps-flutter`](cross-platform/flutter/mapbox-maps-flutter) | [mapbox_maps_flutter with Flutter](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/flutter/mapbox-maps-flutter) | Not needed |
 <!-- examples:end -->
 
 Every framework example serves a second page at `/stateful` that keeps the map instance in framework state. The example READMEs explain when to use it.
