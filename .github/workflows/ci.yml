@@ -135,11 +135,10 @@ jobs:
           fi
           list() {
             examples=$(ls -d $1 2>/dev/null | xargs -rn1 dirname)
-            if [ -n "$HEAD_SHA" ] && ! grep -qx '.github/workflows/ci.yml' <<< "$changed"; then
+            if [ -n "$HEAD_SHA" ] && ! grep -qx '\.github/workflows/ci\.yml' <<< "$changed"; then
               examples=$(for dir in $examples; do if grep -q "^$dir/" <<< "$changed"; then echo "$dir"; fi; done)
             fi
-            printf '%s
-' $examples | jq -R 'select(length > 0)' | jq -cs .
+            printf '%s\n' $examples | jq -R 'select(length > 0)' | jq -cs .
           }
           echo "flutter=$(list 'cross-platform/flutter/*/pubspec.yaml')" >> "$GITHUB_OUTPUT"
           echo "react-native=$(list 'cross-platform/react-native/*/*/package.json')" >> "$GITHUB_OUTPUT"
@@ -218,7 +217,7 @@ jobs:
         run: |
           pod install
           workspace=$(ls -d *.xcworkspace)
-          xcodebuild -workspace "$workspace" -scheme "${workspace%.xcworkspace}" -configuration Debug             -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+          xcodebuild -workspace "$workspace" -scheme "${workspace%.xcworkspace}" -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
 
   kotlin-multiplatform-build:
     needs: list-cross-platform-examples
@@ -243,7 +242,8 @@ jobs:
         run: ./gradlew :androidApp:assembleDebug :androidApp:lint
       - if: matrix.platform == 'ios'
         run: |
-          xcodebuild -project iosApp/iosApp.xcodeproj -scheme iosApp -configuration Debug             -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+          # The shared module has no x86_64 simulator target, so only arm64 is built.
+          xcodebuild -project iosApp/iosApp.xcodeproj -scheme iosApp -configuration Debug -sdk iphonesimulator -arch arm64 CODE_SIGNING_ALLOWED=NO build
 
   docs-links:
     runs-on: ubuntu-latest
