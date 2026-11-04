@@ -61,6 +61,7 @@ Runnable examples for displaying interactive Parsimap maps. Each example is a mi
 | React Native (Expo) | [`cross-platform/react-native/maplibre-react-native/expo`](cross-platform/react-native/maplibre-react-native/expo) | [MapLibre React Native with React Native (Expo)](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/react-native/maplibre-react-native/expo) | `^22.13.0 \|\| ^24.3.0 \|\| >=26.0.0` |
 | React Native CLI | [`cross-platform/react-native/maplibre-react-native/react-native-cli`](cross-platform/react-native/maplibre-react-native/react-native-cli) | [MapLibre React Native with React Native CLI](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/react-native/maplibre-react-native/react-native-cli) | `^22.13.0 \|\| ^24.3.0 \|\| >=26.0.0` |
 | React Native (Expo) | [`cross-platform/react-native/rnmapbox-maps/expo`](cross-platform/react-native/rnmapbox-maps/expo) | [rnmapbox with React Native (Expo)](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/react-native/rnmapbox-maps/expo) | `^22.13.0 \|\| ^24.3.0 \|\| >=26.0.0` |
+| React Native CLI | [`cross-platform/react-native/rnmapbox-maps/react-native-cli`](cross-platform/react-native/rnmapbox-maps/react-native-cli) | [rnmapbox with React Native CLI](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/react-native/rnmapbox-maps/react-native-cli) | `^22.13.0 \|\| ^24.3.0 \|\| >=26.0.0` |
 <!-- examples:end -->
 
 Every framework example serves a second page at `/stateful` that keeps the map instance in framework state. The example READMEs explain when to use it.
