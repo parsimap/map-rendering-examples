@@ -66,14 +66,14 @@ Versions below were resolved from official sources (pub.dev, npm, Maven Central,
 | React Native CLI | `@react-native-community/cli` 20.2.0, React Native 0.88.1 | Project created from the `@react-native-community/template` 0.88.1 template. |
 | `@maplibre/maplibre-react-native` | 11.5.1 | Default native SDKs: MapLibre Android 13.6.1 (OpenGL ES), MapLibre iOS 6.31.0. New Architecture only. Requires React Native 0.80, React 19.1, and Expo SDK 54 when Expo is used. |
 | `@rnmapbox/maps` | 10.3.16 | Default native SDK: Mapbox Maps SDK 11.33.0 on Android and iOS. |
-| Kotlin Multiplatform | Kotlin 2.4.21, Compose Multiplatform 1.12.2, AGP 9.5.0, Gradle 9.6.0, JDK 17 | Android app module and KMP library module are separate, as AGP 9 requires. |
+| Kotlin Multiplatform | Kotlin 2.4.21, Compose Multiplatform 1.12.2, AGP 9.5.0, Gradle 9.6.0, JDK 17 | Android app module and KMP library module are separate, as AGP 9 requires. The shared module targets `iosArm64` and `iosSimulatorArm64`, so simulator builds are arm64 only. |
 | maplibre-compose | 0.20.0 | Android runtime `maplibre-compose-runtime-opengl-android`. iOS 15.5 minimum; the iOS app adds the system libraries maplibre-compose lists to Other Linker Flags. |
 | Android SDK | compileSdk 37 where Compose or the framework template requires it, otherwise the template default; targetSdk 36 | Google Play requires targetSdk 36 from 2026-08-31. |
 | Xcode | the version on GitHub's `macos-26` runner | iOS examples are built for the simulator without code signing. |
 
 Version rules:
 
-- Pin exact versions: `pubspec.yaml` constraints use the resolved version with `^`, and `pubspec.lock` is committed; `package.json` uses exact versions and `package-lock.json` is committed; Gradle uses `gradle/libs.versions.toml`.
+- Pin versions and commit lockfiles: `pubspec.yaml` constraints use the resolved version with `^` and `pubspec.lock` is committed; `package.json` pins the map package exactly, keeps the ranges that Expo or the React Native template installs for their own packages, and `package-lock.json` is committed; Gradle uses `gradle/libs.versions.toml`.
 - Keep each library's default native SDK version. Do not override it in Gradle, CocoaPods, or config plugins.
 - `maplibre_gl`, `flutter_map` majors, and maplibre-compose are pre-1.0 or change APIs between minor releases. Treat every minor upgrade as a guide update.
 - Cover the latest stable version of each framework and library only.
@@ -109,7 +109,7 @@ Version rules:
 - Place guides at `docs/Render Maps/cross-platform/<guide slug>.mdx`. Title and sidebar label name the library and framework, for example `نمایش نقشه با maplibre_gl در Flutter` and `maplibre_gl`; React Native leaves use `Expo` and `React Native CLI`.
 - List the guides in the overview's `دستگاه‌های Android و iOS` tab, one tab per framework, with columns کتابخانه, نوع پروژه, نسخه Android و iOS, and راهنما.
 - Guide sections, in order: `ServiceIntro`; `## پیش‌نیازها` (map token, an existing project, minimum Android and iOS versions, and for Mapbox a Mapbox account and token); `## افزودن کتابخانه و توکن دسترسی`; `## نمایش نقشه`; `## استفاده از Tile رستری` (MapLibre only); the example link; `## گام‌های بعدی`.
-- Show full source files only with `<ExampleCode>`, keyed `<framework>/<library>/<path>` or `react-native/<library>/<project type>/<path>`. Extend `ExampleCode` and Prism with Dart, YAML, Swift, and JSON support before the first guide that needs them.
+- Show full source files only with `<ExampleCode>`, keyed `<framework>/<library>/<path>` or `react-native/<library>/<project type>/<path>`. Extend `ExampleCode` and Prism with Dart, YAML, Swift, shell, Ruby (Podfile), and Groovy (`build.gradle`) support before the first guide that needs them.
 - Recurring failure causes (blank map, 401/403, missing token, iOS deployment target, Swift Package Manager, CocoaPods, Expo Go, New Architecture) go in the framework's `troubleshooting.mdx`.
 
 ## Verification and workflow
