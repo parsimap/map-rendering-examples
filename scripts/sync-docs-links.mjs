@@ -80,6 +80,7 @@ const examples = [
   { dir: 'cross-platform/flutter/maplibre-gl', stack: 'Flutter', library: 'maplibre-gl' },
   { dir: 'cross-platform/flutter/mapbox-maps-flutter', stack: 'Flutter', library: 'mapbox-maps-flutter' },
   { dir: 'cross-platform/flutter/flutter-map', stack: 'Flutter', library: 'flutter-map' },
+  { dir: 'cross-platform/react-native/maplibre-react-native/expo', stack: 'React Native (Expo)', library: 'maplibre-react-native' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');

@@ -58,6 +58,7 @@ Runnable examples for displaying interactive Parsimap maps. Each example is a mi
 | Flutter | [`cross-platform/flutter/maplibre-gl`](cross-platform/flutter/maplibre-gl) | [maplibre_gl with Flutter](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/flutter/maplibre-gl) | Not needed |
 | Flutter | [`cross-platform/flutter/mapbox-maps-flutter`](cross-platform/flutter/mapbox-maps-flutter) | [mapbox_maps_flutter with Flutter](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/flutter/mapbox-maps-flutter) | Not needed |
 | Flutter | [`cross-platform/flutter/flutter-map`](cross-platform/flutter/flutter-map) | [flutter_map with Flutter](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/flutter/flutter-map) | Not needed |
+| React Native (Expo) | [`cross-platform/react-native/maplibre-react-native/expo`](cross-platform/react-native/maplibre-react-native/expo) | [MapLibre React Native with React Native (Expo)](https://docs.parsimap.dev/docs/Render%20Maps/cross-platform/react-native/maplibre-react-native/expo) | `^22.13.0 \|\| ^24.3.0 \|\| >=26.0.0` |
 <!-- examples:end -->
 
 Every framework example serves a second page at `/stateful` that keeps the map instance in framework state. The example READMEs explain when to use it.
