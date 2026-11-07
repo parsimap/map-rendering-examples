@@ -16,6 +16,7 @@ val mapToken: String = Properties().run {
     getProperty("PARSIMAP_MAP_TOKEN", "")
 }
 val generateMapToken by tasks.registering {
+    val mapToken = mapToken
     val output = layout.buildDirectory.dir("generated/mapToken")
     inputs.property("token", mapToken)
     outputs.dir(output)
