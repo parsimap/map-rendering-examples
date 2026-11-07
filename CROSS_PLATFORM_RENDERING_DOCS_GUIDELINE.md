@@ -102,6 +102,7 @@ Version rules:
 - READMEs follow the Android README structure: title `Parsimap + <library> + <framework> (<project type>)`, the generated documentation link, Requirements, Setup and run for Android and iOS, Build, Verified with, and Files.
 - Add every example to `scripts/sync-docs-links.mjs` and the root README table.
 - CI builds only the examples a push changes, like the Android examples: an Android debug build on Ubuntu and an iOS simulator build without code signing on macOS, plus `flutter analyze` or `tsc --noEmit` where the framework provides it.
+- While the examples repository is private, CI builds only the Android platform: the iOS matrix entries run only when `github.event.repository.private` is false, because private repositories cannot use macOS runners under the current plan. parsimap/map-rendering-examples#9 tracks turning them back on when the repository is made public.
 - Dependabot opens update pull requests for each example folder with the framework's package ecosystem (`pub`, `npm`, `gradle`), ignoring major versions.
 
 ## Documentation repository (`parsimap/document-page-generator`)
