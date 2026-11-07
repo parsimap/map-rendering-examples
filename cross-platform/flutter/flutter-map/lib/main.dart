@@ -53,8 +53,13 @@ class _ParsimapMapState extends State<ParsimapMap> {
                     if (!_hasLoadedTile && !_failed) setState(() => _failed = true);
                   },
                 ),
-                const SimpleAttributionWidget(
-                  source: Text('© Mapbox | © OpenStreetMap | © Parsimap'),
+                // An (i) button that opens the attribution, like the MapLibre and Mapbox SDKs.
+                const RichAttributionWidget(
+                  attributions: [
+                    TextSourceAttribution('Mapbox'),
+                    TextSourceAttribution('OpenStreetMap'),
+                    TextSourceAttribution('Parsimap'),
+                  ],
                 ),
               ],
             ),
