@@ -35,3 +35,4 @@ flutter build ios --simulator --debug
 - `lib/main.dart`: sets the Mapbox token and shows the map.
 - `lib/map_error.dart`: shows the error message.
 - `android/app/src/main/AndroidManifest.xml`: adds the `INTERNET` permission for release builds.
+- `android/gradle.properties`: turns on built-in Kotlin, which mapbox_maps_flutter needs with Android Gradle Plugin 9.
