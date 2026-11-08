@@ -20,6 +20,6 @@
       },
       "predictiveBackGestureEnabled": false
     },
-    "plugins": ["@maplibre/maplibre-react-native"]
+    "plugins": ["@maplibre/maplibre-react-native", "./plugins/with-windows-cmake"]
   }
 }

@@ -20,6 +20,6 @@
       },
       "predictiveBackGestureEnabled": false
     },
-    "plugins": ["@rnmapbox/maps"]
+    "plugins": ["@rnmapbox/maps", "./plugins/with-windows-cmake"]
   }
 }
