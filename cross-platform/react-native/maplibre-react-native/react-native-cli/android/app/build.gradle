@@ -77,6 +77,16 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
+    // On Windows, builds native code with CMake 4.1.0 instead of the default CMake 3.22.1.
+    // The Ninja bundled with CMake 3.22.1 fails on paths longer than 260 characters.
+    if (System.getProperty("os.name").startsWith("Windows")) {
+        externalNativeBuild {
+            cmake {
+                version "4.1.0"
+            }
+        }
+    }
+
     namespace "ir.parsimap.examples.reactnativemaplibrecli"
     defaultConfig {
         applicationId "ir.parsimap.examples.reactnativemaplibrecli"
