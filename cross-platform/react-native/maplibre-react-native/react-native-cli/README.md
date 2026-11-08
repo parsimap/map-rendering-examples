@@ -9,6 +9,7 @@ Documentation: [MapLibre React Native with React Native CLI](https://docs.parsim
 - A Parsimap map token from the [Parsimap dashboard](https://dashboard.parsimap.ir/auth/signup).
 - Node.js `^22.13.0 || ^24.3.0 || >=26.0.0`.
 - For Android: Android Studio or the Android SDK with JDK 17, and a device or emulator running Android 7.0 (API level 24) or later with OpenGL ES 3.0 support.
+- For Android on Windows: [long paths](https://learn.microsoft.com/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later) enabled.
 - For iOS: a Mac with Xcode and CocoaPods, and a device or simulator running iOS 15.1 or later.
 
 The example was created with `@react-native-community/cli` 20.2.0 and React Native 0.88.1, and uses @maplibre/maplibre-react-native 11.5.1 with its default native SDKs, MapLibre Native Android 13.6.1 and MapLibre Native iOS 6.31.0.
@@ -29,7 +30,7 @@ npm run typecheck
 npm run lint
 ```
 
-Then build `android` with `./gradlew assembleDebug`, or `ios` with Xcode after `pod install`.
+Then build `android` with `./gradlew assembleDebug` (`gradlew.bat assembleDebug` on Windows), or `ios` with Xcode after `pod install`.
 
 ## Files
 
