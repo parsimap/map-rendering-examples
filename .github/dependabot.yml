@@ -20,6 +20,32 @@ updates:
   - package-ecosystem: gradle
     directories:
       - /android/*/*
+      - /cross-platform/kotlin-multiplatform/*
+    schedule:
+      interval: weekly
+    groups:
+      dependencies:
+        patterns: ['*']
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
+
+  # Cross-platform examples, one pull request per folder and package manager.
+  - package-ecosystem: pub
+    directories:
+      - /cross-platform/flutter/*
+    schedule:
+      interval: weekly
+    groups:
+      dependencies:
+        patterns: ['*']
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
+
+  - package-ecosystem: npm
+    directories:
+      - /cross-platform/react-native/*/*
     schedule:
       interval: weekly
     groups:

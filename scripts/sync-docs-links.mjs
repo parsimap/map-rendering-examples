@@ -9,10 +9,11 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 
 const DOCS_BASE_URL = 'https://docs.parsimap.dev';
-// Example folders are named after their guide: <platform>/<library>/<folder> is
-// documented at <DOCS_PATH>/<platform>/<library>/<folder>.
+// Example folders are named after their guide: an example in <dir> is
+// documented at <DOCS_PATH>/<dir>, for example web/leaflet/react-vite or
+// cross-platform/flutter/maplibre-gl.
 const DOCS_PATH = '/docs/Render%20Maps';
-const PLATFORMS = ['web', 'android'];
+const PLATFORMS = ['web', 'android', 'cross-platform'];
 
 const libraries = {
   leaflet: 'Leaflet',
@@ -20,6 +21,12 @@ const libraries = {
   'maplibre-gl-js': 'MapLibre GL JS',
   'maplibre-native-android': 'MapLibre Native Android',
   'mapbox-maps-android': 'Mapbox Maps SDK for Android',
+  'maplibre-gl': 'maplibre_gl',
+  'mapbox-maps-flutter': 'mapbox_maps_flutter',
+  'flutter-map': 'flutter_map',
+  'maplibre-react-native': 'MapLibre React Native',
+  'rnmapbox-maps': 'rnmapbox',
+  'maplibre-compose': 'maplibre-compose',
 };
 const examples = [
   { dir: 'web/leaflet/javascript-cdn', stack: 'JavaScript (CDN)' },
@@ -70,6 +77,14 @@ const examples = [
   { dir: 'android/mapbox-maps-android/kotlin-views', stack: 'Kotlin (Android Views)' },
   { dir: 'android/mapbox-maps-android/kotlin-compose', stack: 'Kotlin (Jetpack Compose)' },
   { dir: 'android/mapbox-maps-android/java-views', stack: 'Java (Android Views)' },
+  { dir: 'cross-platform/flutter/maplibre-gl', stack: 'Flutter', library: 'maplibre-gl' },
+  { dir: 'cross-platform/flutter/mapbox-maps-flutter', stack: 'Flutter', library: 'mapbox-maps-flutter' },
+  { dir: 'cross-platform/flutter/flutter-map', stack: 'Flutter', library: 'flutter-map' },
+  { dir: 'cross-platform/react-native/maplibre-react-native/expo', stack: 'React Native (Expo)', library: 'maplibre-react-native' },
+  { dir: 'cross-platform/react-native/maplibre-react-native/react-native-cli', stack: 'React Native CLI', library: 'maplibre-react-native' },
+  { dir: 'cross-platform/react-native/rnmapbox-maps/expo', stack: 'React Native (Expo)', library: 'rnmapbox-maps' },
+  { dir: 'cross-platform/react-native/rnmapbox-maps/react-native-cli', stack: 'React Native CLI', library: 'rnmapbox-maps' },
+  { dir: 'cross-platform/kotlin-multiplatform/maplibre-compose', stack: 'Kotlin Multiplatform (Compose Multiplatform)', library: 'maplibre-compose' },
 ];
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -80,10 +95,9 @@ if (!['write', '--check', '--check-urls'].includes(mode)) {
 
 const exists = (path) => access(path).then(() => true, () => false);
 
-function describe({ dir, stack }) {
-  const [platform, library, folder] = dir.split('/');
-  const name = `${libraries[library]} with ${stack}`;
-  return { name, url: `${DOCS_BASE_URL}${DOCS_PATH}/${platform}/${library}/${folder}` };
+function describe({ dir, stack, library }) {
+  const name = `${libraries[library ?? dir.split('/')[1]]} with ${stack}`;
+  return { name, url: `${DOCS_BASE_URL}${DOCS_PATH}/${dir}` };
 }
 
 function replaceSection(content, marker, body, file) {
@@ -122,14 +136,16 @@ async function expectedFiles() {
   return files;
 }
 
+// An example is the first folder below a platform that has a README.
 async function exampleFolders() {
   const folders = [];
-  for (const platform of PLATFORMS) {
-    if (!(await exists(join(root, platform)))) continue;
-    for (const library of await readdir(join(root, platform))) {
-      for (const folder of await readdir(join(root, platform, library))) folders.push(`${platform}/${library}/${folder}`);
+  async function visit(dir) {
+    if (await exists(join(root, dir, 'README.md'))) return folders.push(dir);
+    for (const entry of await readdir(join(root, dir), { withFileTypes: true })) {
+      if (entry.isDirectory()) await visit(`${dir}/${entry.name}`);
     }
   }
+  for (const platform of PLATFORMS) if (await exists(join(root, platform))) await visit(platform);
   return folders;
 }
 
