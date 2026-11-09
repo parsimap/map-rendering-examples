@@ -1,9 +1,9 @@
 [versions]
-agp = "9.5.0"
+agp = "9.5.1"
 androidxActivity = "1.13.0"
 composeBom = "2026.09.00"
 # The Kotlin version that AGP 9.5 compiles with; the Compose compiler plugin must match it.
-kotlin = "2.2.10"
+kotlin = "2.4.21"
 mapbox = "11.34.1"
 
 [libraries]
