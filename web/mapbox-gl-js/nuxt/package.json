@@ -13,14 +13,14 @@
   },
   "dependencies": {
     "mapbox-gl": "1.13.3",
-    "nuxt": "4.6.3",
-    "vue": "3.5.44",
-    "vue-router": "5.4.0"
+    "nuxt": "4.6.4",
+    "vue": "3.5.45",
+    "vue-router": "5.5.1"
   },
   "devDependencies": {
     "@types/mapbox-gl": "1.13.10",
     "typescript": "6.0.3",
-    "vue-tsc": "3.3.13"
+    "vue-tsc": "3.3.14"
   },
   "overrides": {
     "@mapbox/jsonlint-lines-primitives": "2.0.2"
