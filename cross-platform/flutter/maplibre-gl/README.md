@@ -8,7 +8,7 @@ Documentation: [maplibre_gl with Flutter](https://docs.parsimap.dev/docs/Render%
 
 - A Parsimap map token from the [Parsimap dashboard](https://dashboard.parsimap.ir/auth/signup).
 - Flutter 3.47.9 or a later 3.x release.
-- For Android: Android Studio or the Android SDK, and a device or emulator running Android 7.0 (API level 24) or later with OpenGL ES 3.0 support.
+- For Android: Android Studio or the Android SDK, JDK 21 or later (Android Studio includes one; the maplibre_gl plugin does not build with JDK 17), and a device or emulator running Android 7.0 (API level 24) or later with OpenGL ES 3.0 support.
 - For iOS: a Mac with Xcode, and a device or simulator running iOS 15.5 or later.
 
 The example uses maplibre_gl 0.28.0, which bundles MapLibre Native Android 13.7.1 and MapLibre Native iOS 7.0.0. On iOS, the plugin is added through Swift Package Manager, which Flutter enables by default.
