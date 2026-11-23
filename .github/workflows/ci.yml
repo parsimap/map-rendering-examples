@@ -151,8 +151,7 @@ jobs:
       fail-fast: false
       matrix:
         example: ${{ fromJSON(needs.list-cross-platform-examples.outputs.flutter) }}
-        # iOS builds need macOS runners, which run only once the repository is public (issue #9).
-        platform: ${{ fromJSON(github.event.repository.private && '["android"]' || '["android","ios"]') }}
+        platform: [android, ios]
     runs-on: ${{ matrix.platform == 'ios' && 'macos-26' || 'ubuntu-latest' }}
     defaults:
       run:
@@ -185,8 +184,7 @@ jobs:
       fail-fast: false
       matrix:
         example: ${{ fromJSON(needs.list-cross-platform-examples.outputs.react-native) }}
-        # iOS builds need macOS runners, which run only once the repository is public (issue #9).
-        platform: ${{ fromJSON(github.event.repository.private && '["android"]' || '["android","ios"]') }}
+        platform: [android, ios]
     runs-on: ${{ matrix.platform == 'ios' && 'macos-26' || 'ubuntu-latest' }}
     defaults:
       run:
@@ -229,8 +227,7 @@ jobs:
       fail-fast: false
       matrix:
         example: ${{ fromJSON(needs.list-cross-platform-examples.outputs.kotlin-multiplatform) }}
-        # iOS builds need macOS runners, which run only once the repository is public (issue #9).
-        platform: ${{ fromJSON(github.event.repository.private && '["android"]' || '["android","ios"]') }}
+        platform: [android, ios]
     runs-on: ${{ matrix.platform == 'ios' && 'macos-26' || 'ubuntu-latest' }}
     defaults:
       run:
