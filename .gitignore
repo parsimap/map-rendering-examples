@@ -1,0 +1,22 @@
+# Each example has its own .gitignore. These rules are a safety net for files
+# created at the repository root or in a new example folder.
+
+# Map tokens and local configuration. Never commit a real token.
+.env
+.env*.local
+local.properties
+
+# Dependencies and build output
+node_modules/
+.gradle/
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local Claude Code files
+.claude/settings.local.json
+.claude/worktrees/
