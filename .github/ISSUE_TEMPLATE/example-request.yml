@@ -1,0 +1,16 @@
+name: Example request
+description: Suggest a new framework, library, or platform, or a change to an existing example.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: request
+    attributes:
+      label: What would you like?
+      description: The framework, map library, or platform, and the version you use.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What you are building, and why the existing examples do not cover it.

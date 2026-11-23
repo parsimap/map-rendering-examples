@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Parsimap documentation
+    url: https://docs.parsimap.dev
+    about: Step-by-step guides for every example.
+  - name: Report a security problem
+    url: https://github.com/parsimap/map-rendering-examples/security/advisories/new
+    about: Report security problems and leaked tokens privately.

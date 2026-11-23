@@ -1,5 +1,8 @@
 # Map Rendering Examples
 
+[![CI](https://github.com/parsimap/map-rendering-examples/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/parsimap/map-rendering-examples/actions/workflows/ci.yml)
+[![License: MIT-0](https://img.shields.io/badge/license-MIT--0-blue.svg)](LICENSE)
+
 Runnable examples for displaying interactive Parsimap maps. Each example is a minimal project for one framework or build tool, and each one has a step-by-step guide in the Parsimap documentation.
 
 ## Examples
@@ -77,15 +80,37 @@ Every framework example serves a second page at `/stateful` that keeps the map i
    cd map-rendering-examples/web/maplibre-gl-js/react-vite
    ```
 
-3. Follow the setup steps in that folder's README. In most examples you run `npm ci`, copy `.env.example` to the env file the README names, set your token, and run `npm run dev`.
+3. Follow the setup steps in that folder's README. In most web examples you run `npm ci`, copy `.env.example` to the env file the README names, set your token, and run `npm run dev`.
+
+### Android and cross-platform examples
+
+The steps are the same: copy the example's token file, set your token, and run the app. The token file depends on the toolkit:
+
+| Toolkit | Copy | To | Run |
+| --- | --- | --- | --- |
+| Android (Kotlin, Java) | `local.properties.example` | `local.properties` | Open the folder in Android Studio, or `./gradlew installDebug` |
+| Kotlin Multiplatform | `local.properties.example` | `local.properties` | `./gradlew :androidApp:installDebug`, or the `iosApp` scheme in Xcode |
+| Flutter | `config.example.json` | `config.json` | `flutter run --dart-define-from-file=config.json` |
+| React Native (Expo) | `.env.example` | `.env.local` | `npm ci`, then `npm run android` or `npm run ios` |
+| React Native CLI | `src/map-token.example.ts` | `src/map-token.ts` | `npm ci`, then `npm run android` or `npm run ios` (run `pod install` in `ios` first) |
+
+iOS builds need a Mac with Xcode. Each example's README lists the exact SDK, tool, and device requirements.
+
+### Mapbox examples
+
+The Mapbox mobile SDKs (`android/mapbox-maps-android/*`, `cross-platform/flutter/mapbox-maps-flutter`, and `cross-platform/react-native/rnmapbox-maps/*`) do not create a map without a Mapbox access token, even though the map shows Parsimap tiles. Create a [Mapbox account](https://account.mapbox.com/) and set its public access token next to your Parsimap token; the SDK's usage is tied to your Mapbox account and its terms. The web Mapbox GL JS examples need only a Parsimap token.
 
 ## Token safety
 
-A map token used in a web page is visible in the browser's network requests. Never commit a real token: each example reads it from a file that Git ignores, except the CDN examples, where you edit `main.js` directly.
+A map token used in a web page or a mobile app is visible to the people who use it, for example in the browser's network requests. Never commit a real token: each example reads it from a file that Git ignores, except the CDN examples, where you edit `main.js` directly. If a token leaks, follow [SECURITY.md](SECURITY.md).
 
 ## Package managers
 
 The examples use npm and commit `package-lock.json`. Yarn, pnpm, and Bun also work, but they are not lock-tested. `.nvmrc` sets the Node.js version used in CI; each example's `package.json` lists the versions it supports under `engines`.
+
+## Contributing
+
+Bug reports, fixes, and new examples are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the rules every example follows, and the [code of conduct](CODE_OF_CONDUCT.md). Report security problems privately as described in [SECURITY.md](SECURITY.md).
 
 ## Maintaining the examples
 
