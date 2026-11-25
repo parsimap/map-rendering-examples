@@ -91,38 +91,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.0"
+  listen:
+    dependency: transitive
+    description:
+      name: listen
+      sha256: "47501a08016a43fcad79252439d723f50f14f88fa7bfd8a177e0a417e5c9e1f2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   mapbox_maps_flutter:
     dependency: "direct main"
     description:
       name: mapbox_maps_flutter
-      sha256: f65c20ea6590e1c28f56f4045919b79710de07a8acf109dec92d9d07ac6ac60a
+      sha256: "17e69c271b2819ad11f51c102202da2242b643671f8fb3300319268076ee407b"
       url: "https://pub.dev"
     source: hosted
-    version: "3.34.2"
+    version: "3.35.2"
   mapbox_maps_flutter_mobile:
     dependency: transitive
     description:
       name: mapbox_maps_flutter_mobile
-      sha256: "8c43f4394fc77b37f74f58bfec094c176dc0d8bf3199bbbfaf573d672b429640"
+      sha256: "405578463cbcaedac37b131e9b1ddb1055334e186ef53374d7fdfbd9f494b989"
       url: "https://pub.dev"
     source: hosted
-    version: "3.34.2"
+    version: "3.35.2"
   mapbox_maps_flutter_platform_interface:
     dependency: transitive
     description:
       name: mapbox_maps_flutter_platform_interface
-      sha256: "2019616aa8289f217433b75404af10685a84a06865d4ed2c9d36476b543dcc71"
+      sha256: "2033b5aaec06f5b3764e3dcfe96a3cd41bec1f1b4cacf055696d296206854149"
       url: "https://pub.dev"
     source: hosted
-    version: "3.34.2"
+    version: "3.35.2"
   mapbox_maps_flutter_web:
     dependency: transitive
     description:
       name: mapbox_maps_flutter_web
-      sha256: bf3bc977280f2d3516adc6aa154cf11b767ec396fbb530a81f31a934310e8b86
+      sha256: c65ecb93757f54c8d473b0e043bab24dabd6d2a586610c1eb1af0175501ab00f
       url: "https://pub.dev"
     source: hosted
-    version: "3.34.2"
+    version: "3.35.2"
   material_color_utilities:
     dependency: transitive
     description:
@@ -135,10 +143,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: c82594181e3312f3d0695fc95aaaf7758d75b8d4ae2bbecf223b9fd5109a059d
+      sha256: "307249ce4ff29d58a18e97f6345f539382eb9c9c29ecda628900f31de0443dd9"
       url: "https://pub.dev"
     source: hosted
-    version: "1.18.3"
+    version: "1.19.0"
   path:
     dependency: transitive
     description:
@@ -204,10 +212,10 @@ packages:
     dependency: transitive
     description:
       name: vector_math
-      sha256: "1d774bbdf6b72a0b12122fc1560c9c2d2a67db5a4a4cc2bd8a5c990ab20e3188"
+      sha256: fa49e1674cb84acb900141714e6c6e1f9ae099827c24d141430ff6819db4e1bc
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.4"
   web:
     dependency: transitive
     description:
