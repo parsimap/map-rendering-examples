@@ -1,7 +1,7 @@
 [versions]
-agp = "9.5.0"
+agp = "9.5.2"
 androidxActivity = "1.13.0"
-composeBom = "2026.09.00"
+composeBom = "2026.11.01"
 kotlin = "2.4.21"
 maplibreCompose = "0.20.0"
 
