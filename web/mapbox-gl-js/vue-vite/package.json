@@ -13,14 +13,14 @@
   },
   "dependencies": {
     "mapbox-gl": "1.13.3",
-    "vue": "3.5.44"
+    "vue": "3.5.46"
   },
   "devDependencies": {
     "@types/mapbox-gl": "1.13.10",
-    "@vitejs/plugin-vue": "6.0.10",
+    "@vitejs/plugin-vue": "6.0.11",
     "typescript": "6.0.3",
-    "vite": "8.3.5",
-    "vue-tsc": "3.3.13"
+    "vite": "8.3.8",
+    "vue-tsc": "3.3.14"
   },
   "overrides": {
     "@mapbox/jsonlint-lines-primitives": "2.0.2"
