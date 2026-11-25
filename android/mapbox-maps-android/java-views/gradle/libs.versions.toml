@@ -1,5 +1,5 @@
 [versions]
-agp = "9.5.0"
+agp = "9.5.2"
 androidxActivity = "1.13.0"
 androidxCore = "1.18.0"
 mapbox = "11.34.1"
